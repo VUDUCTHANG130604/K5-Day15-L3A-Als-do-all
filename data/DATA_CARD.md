@@ -1,43 +1,36 @@
 # Data card — dữ liệu bản chạy thử dùng
 
-> Điền ở guide bước 2.4 (bản đầu ở CP2, đủ ở CP3). Ôn lại: ngày 6 · lab ngày 6. Chấm ở rubric R4.
-> Một trang. Mỗi dataset một mục. Dữ liệu chạy thử (bài mẫu, thông báo mẫu, đoạn transcript…) để trong thư mục `data/` này.
-> Không commit nguyên tài liệu khoá, dữ liệu cá nhân thật hay nguyên file data BTC cấp — chỉ đoạn trích ngắn, bản viết lại, hoặc số đã tổng hợp.
+> Điền ở guide bước 2.4. Chấm ở rubric R4. Không commit nguyên file data BTC: bản gốc để ở `data-btc/` (đã có trong `.gitignore`).
+> **Mọi dữ liệu dưới đây là giả lập hoặc tự dựng — không phải bằng chứng pain.**
 
-## Dataset 1 · `data/schedule_data.json` ( phần `sessions` & `staff_aliases` — Trích rút từ `data/training-ops/`)
+## Dataset 1 · Lịch Khoá 9 — `data/schedule_data.json` (phần `sessions`, `edit_history`, `staff_aliases`)
 
-| Thuộc tính | Chi tiết |
+| | |
 |---|---|
-| **Dùng để làm gì** | Nguồn dữ liệu nền cho 2 công cụ `get_schedule` và `check_conflicts` trong `codebase/tools.py`; dùng để kiểm thử các ca đối chiếu lịch, bắt lệch giữa 2 bảng và lịch sử đổi phòng sát giờ. |
-| **Từ đâu** | Trích rút và chuẩn hóa cấu trúc từ bộ dữ liệu giả lập BTC cấp (`data/training-ops/teaching-schedule.xlsx` — bản xuất `21:00 27/04/2027` và `data/training-ops/lab-coach-schedule.xlsx`). Không commit nguyên file `.xlsx` gốc của BTC. |
-| **Xử lý những bước gì** | 1. Chọn lọc 10 buổi học đại diện cho đủ 5 kiểu tình huống vận hành (đã xác nhận khớp, lệch trạng thái `dk`/`chờ xác nhận`, đổi phòng sau khi đã báo, đổi giờ/chuyển online, trùng phòng/trùng coach).<br>2. Trích mã ô gốc (`K9-GD1/F18`, `K9-GD1/F27`...), lịch sử chỉnh sửa (`EDIT-...`) và bảng ánh xạ tên gõ lệch (`staff_aliases`: `Labcoach AY`, `Lab Coach  J`, `Lecturer C.`, `GV E`, `Support  D`). |
-| **Số dòng / số đoạn** | 10 bản ghi buổi học (`sessions`), 6 cặp ánh xạ tên nhân sự (`staff_aliases`), 9 bản ghi lịch sử chỉnh sửa (`edit_history`). |
-| **Phiên bản / ngày lấy** | v1.0 · Trích xuất ngày 27/11/2026 từ bản giả lập Khoá 9 (15/04–08/05/2027). |
-| **Nhãn** | `synthetic` (dữ liệu vận hành giả lập từ bộ đề BTC — **không dùng làm bằng chứng pain**). |
-| **Giới hạn** | Chỉ bao phủ các buổi tiêu biểu của đợt 22/04–08/05/2027 của lớp L3A, L3B, L2A, L2B; chưa chứa toàn bộ 111 buổi của cả giai đoạn 1. |
+| Dùng để làm gì | Nguồn của 3 công cụ `get_schedule`, `check_conflicts`, `draft_notice` (`codebase/tools.py`) và đáp án (`expected`) của `eval/benchmark.csv` |
+| Từ đâu | Bộ **giả lập** BTC cấp, `data/training-ops/` trong repo đề: `teaching-schedule.xlsx` (bản xuất **21:00 27/04/2027**) và `lab-coach-schedule.xlsx`. Người, email, ngày là giả; mã phòng và chủ đề giữ theo khoá thật (theo README của bộ data) |
+| Xử lý những bước gì | Script `data/build_schedule.py` (chỉ thư viện chuẩn). Chạy lại: chép 2 file xlsx vào `data-btc/` rồi `python data/build_schedule.py`.<br>1. Sheet `Khoá 9 (GĐ1)`: tách mỗi ô chữ nhiều dòng → lớp, mã buổi, giờ, chủ đề, trạng thái phòng (`CONFIRMED` / `PENDING` / `ONLINE` / `UNCLEAR` / `NO_CLASS`), phòng chính thức, phòng dự kiến, phòng thêm, giảng viên. Hai ô LEC song song (cột D, E) gộp thành một buổi. Ô LEC không có dòng `Phòng:` → lấy phòng theo tiêu đề cột (H209 / H210), đúng quy ước trong README bộ data; nếu dòng giảng viên ghi phòng khác tiêu đề → gắn `UNCLEAR`, không đoán (ô E19).<br>2. Sheet `Lịch sử chỉnh sửa`: 44 dòng, phân loại `ROOM_CONFIRMED` / `ROOM_CHANGED_AFTER_CONFIRM` / `TIME_CHANGED` / `LECTURER_CHANGED` / `EXTRA_ROOM_CHANGED`, nối vào buổi theo địa chỉ ô.<br>3. Sheet `Lịch lab 1504-2404`, `Lịch lab 2604-0805`: gom các dòng coach theo (ngày, lớp, mã buổi) → phòng ghi ở bảng phụ (`dk:` / `chờ xác nhận` / phòng), key coach, danh sách lab coach. Đợt 1 không có cột phòng.<br>4. Sheet `Nhan_su`: bảng tên gõ lệch → tên khớp chuẩn.<br>Không ẩn danh thêm (bộ data đã dùng nhãn `Lecturer A`, `Lab Coach B`…). Không giữ email |
+| Số dòng | 113 buổi (20 chờ xác nhận, 1 không rõ phòng, 2 đổi phòng sau khi xác nhận, 1 đổi giờ, 2 đổi giảng viên) · 44 lần sửa · 69 nhóm dòng bảng lab coach (1 dòng "Khai giảng toàn khoá" không nối với buổi nào) · 7 cặp tên gõ lệch |
+| Mã trích dẫn | `[K9-GD1/<ô>]` = ô trong sheet `Khoá 9 (GĐ1)` · `[LSCS/<dòng>]` = dòng trong `Lịch sử chỉnh sửa` · `[LAB1/<dòng>]`, `[LAB2/<dòng>]` = dòng đầu nhóm trong sheet lịch lab đợt 1 / đợt 2. Mở xlsx là kiểm lại được |
+| Phiên bản / ngày lấy | Sinh 27/11/2026 từ bộ đề phát ngày 27/11/2026 |
+| Nhãn | `synthetic` (giả lập của BTC) |
+| Giới hạn | Một ảnh chụp tại 21:00 27/04/2027 — không có thay đổi sau thời điểm đó. "Hôm nay" của bản chạy thử cố định là 27/04/2027. Không đọc màu nền, link, ô gộp ngoài các trường trên; không đọc sheet `Lịch lớp K9 (bản chép)`, `Đổi buổi (form)`, `Workload`. Cột "Sức chứa phòng" của bảng lab coach ghi một số cho cả buổi nhiều phòng, nghĩa không rõ → chỉ hiển thị, **không** dùng để kiểm vượt sức chứa. Trong toàn bộ data **không có** ca trùng phòng hay trùng coach giữa hai buổi chồng giờ (code vẫn kiểm) |
 
-## Dataset 2 · `data/schedule_data.json` ( phần `groups` — Danh sách nhóm học viên theo lớp)
+## Dataset 2 · Danh sách nhóm học viên — `data/schedule_data.json` (phần `groups`)
 
-| Thuộc tính | Chi tiết |
+| | |
 |---|---|
-| **Dùng để làm gì** | Nguồn cho công cụ `get_schedule` và `check_conflicts` để chia nhóm học viên vào từng phòng lab và kiểm tra cảnh báo vượt sức chứa phòng (`capacity_warnings`). |
-| **Từ đâu** | Nhóm tự dựng (`synthetic`) để bổ sung phần danh sách nhóm học viên không có sẵn trong hai file Excel của bộ đề. |
-| **Xử lý những bước gì** | Khởi tạo cố định 6 nhóm cho lớp L3A (`L3A-N1`..`L3A-N6`, sĩ số 22–24 HV/nhóm, tổng 138 HV), 6 nhóm cho L3B (`L3B-N1`..`L3B-N6`, tổng 136 HV), cùng các cụm nhóm L2A, L2B. |
-| **Số dòng / số đoạn** | 15 cụm/nhóm học viên thuộc 4 lớp (`L3A`, `L3B`, `L2A`, `L2B`). |
-| **Phiên bản / ngày lấy** | v1.0 · Tạo ngày 27/11/2026. |
-| **Nhãn** | `synthetic` |
-| **Giới hạn** | Sĩ số từng nhóm là con số giả định đều nhau (~22–24 HV/nhóm), thực tế tại lớp có thể dao động theo tỷ lệ đi học từng buổi. |
+| Dùng để làm gì | Đề xuất chia nhóm vào phòng cho buổi LAB đã chốt (`check_conflicts` → `group_allocation`) |
+| Từ đâu | **Nhóm tự dựng** — bộ đề không có danh sách nhóm |
+| Cách sinh | `build_groups()` trong `data/build_schedule.py`, `random.Random(42)`: L3A, L3B mỗi lớp 12 nhóm; L2A, L2B mỗi lớp 6 nhóm; sĩ số mỗi nhóm 26–31. Quy mô lấy theo tiêu đề bảng phân công (L3 ~350 HV/lớp, L2 ~160 HV/lớp) |
+| Số dòng | 36 nhóm |
+| Nhãn | `synthetic` |
+| Giới hạn | Số nhóm và sĩ số là giả định. Chia nhóm là đề xuất cơ học (khối liền nhau, đều theo số phòng), key coach phải chỉnh |
 
-**Data `synthetic` (nhóm tự sinh):** Sinh cố định theo quy tắc chia 6 nhóm/lớp L3 (mỗi phòng lab ghép 2 nhóm ~45–48 học viên để khớp với sức chứa phòng 40–50 chỗ trong sheet `Lịch lab 2604-0805`). Người kiểm: **Bùi Mạnh Linh** và **Nguyễn Mạnh Quyền** đã kiểm tay toàn bộ 15 dòng nhóm và 10 buổi học. Data tự dựng chỉ phục vụ chạy thử tool và benchmark, **không phải bằng chứng pain**.
+## Dataset 3 · Bộ câu thử — `eval/benchmark.csv`
 
-## Dataset 3 · Câu hỏi & tình huống thực tế trong `eval/benchmark.csv`
-
-| Thuộc tính | Chi tiết |
+| | |
 |---|---|
-| **Dùng để làm gì** | Làm đầu vào (`input`) cho các câu thử có nhãn nguồn `nguoi_dung` và `data_that` trong `eval/benchmark.csv` (7/20 câu = 35% ≥ 1/3 theo quy định R4). |
-| **Từ đâu** | Ghi nhận từ lời kể tình huống thực tế khi phỏng vấn Trợ giảng / Key Coach L3A (`P1`, `P2`, `P3`) và mẫu câu hỏi đổi phòng/giờ thực tế trên kênh lớp L3A (đã ẩn danh và ánh xạ mã buổi sang lịch Khoá 9 để chạy qua tool). |
-| **Xử lý những bước gì** | Xoá toàn bộ tên thật, SĐT, email cá nhân; giữ nguyên cấu trúc câu hỏi tự nhiên của học viên/trợ giảng và ánh xạ ngày/mã buổi sang không gian dữ liệu `schedule_data.json`. |
-| **Số dòng / số đoạn** | 7 câu thử thực tế (`B01`, `B02`, `B03`, `B04`, `B12`, `B15`, `B17`) trên tổng số 20 câu thử trong `eval/benchmark.csv`. |
-| **Phiên bản / ngày lấy** | v1.0 · Ngày 27/11/2026. |
-| **Nhãn** | **thật** (cấu trúc câu hỏi & tình huống vận hành từ người dùng thật, đã ẩn danh). |
-| **Giới hạn** | Mã ngày/phòng cụ thể trong câu hỏi được ánh xạ sang lịch Khoá 9 (`22/04`–`08/05/2027`) để khớp với kho dữ liệu giả lập của bản chạy thử. |
+| Từ đâu | Nhóm tự viết (`tu_viet`, 27 câu) và 1 câu dựa trên danh sách nhóm sinh có seed (`sinh_seed`). Mỗi `expected` trỏ về ô / dòng cụ thể trong xlsx (ghi ở cột `source`) |
+| Số dòng | 28 câu: `thuong` 9 · `kho` 14 · `tu_choi` 5 |
+| Giới hạn | **Chưa có câu nào từ lời người dùng thật hoặc data thật** (0/28; rubric R4 cần ≥ 1/3 ở CP3). Câu thêm từ khảo sát / kênh công khai sau này sẽ được **thêm** vào bộ, không sửa câu cũ |

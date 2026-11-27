@@ -120,7 +120,9 @@ Cấu trúc, tên sheet, tên cột dựng theo bảng thật; người/email/m�
 - Bảng phân công đã xác nhận, bảng lab coach vẫn `dk:` cùng phòng — vd 26/04 L3A LAB 8, 27/04 L3A LAB 9, 28/04 L2A LAB 10.
 - Bảng phân công đã có phòng, bảng lab coach vẫn `chờ xác nhận` — vd 27/04 L3A LAB 10 (C302, F307, H202), 27/04 L2B LAB 9 (H210), 28/04 L3B LAB 10.
 - **Ngược lại**: bảng lab coach có phòng dự kiến, bảng phân công ghi `chờ xác nhận` — vd 03/05 L3A LAB 11, 29/04 L2A LAB 11, 03/05 L2A LAB 7.
-- Buổi trong lab sheet không có trong bảng phân công (08/05 HACKATHON L3B), ô giảng viên trống (H42 `Giảng Viên: E402:`), sai định dạng (E19 `Giảng Viên D301: Lecturer B`).
+- 08/05 HACKATHON: L3A bảng chính "chờ xác nhận" nhưng bảng lab coach ghi `dk: H209, H210`; L3B bảng chính có "Phòng dự kiến: C401, E403 (chờ xác nhận)" còn bảng lab coach ghi "chờ xác nhận". *(Bản trước của file này ghi nhầm là buổi L3B không có trên bảng chính — script cũ bắt sai tên "HACKATHON 15".)* Ô giảng viên trống (H42 `Giảng Viên: E402:`), sai định dạng (E19 `Giảng Viên D301: Lecturer B` — không xác định được phòng).
+- Toàn bộ data **không có** ca trùng phòng / trùng coach giữa hai buổi chồng giờ.
+- Dữ liệu đã trích: `data/schedule_data.json` (sinh bằng `python data/build_schedule.py` từ `data-btc/`).
 → Nguồn sự thật phải chọn rõ: **bảng phân công (`Khoá 9 (GĐ1)`) + `Lịch sử chỉnh sửa` là nguồn chính thức về phòng**; bảng lab coach là bản phụ có thể cũ.
 
 **Data phải tự dựng** (ghi vào `data/DATA_CARD.md`, nhãn `synthetic`, có seed): danh sách nhóm học viên theo lớp (không có trong bộ đề), thông báo mẫu, có thể là "phòng vừa xác nhận" dạng tin nhắn của ban đào tạo.
