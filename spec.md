@@ -24,7 +24,7 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): Bộ dữ 
 
 | Hướng | Bao nhiêu người gặp | Bao nhiêu lần / tháng | Mỗi lần tốn gì | Impact / tháng | Làm kịp không | Chọn? |
 |---|---|---|---|---|---|---|
-| **H1. Đối chiếu phòng & soạn thông báo/trả lời đổi phòng cho Key Coach / Trợ giảng L3A–L3B** | ~12 Key Coach / Trợ giảng trực tiếp (ảnh hưởng >700 HV L3) *(tự ước tính)* | ~20 buổi có cập nhật/đổi phòng mỗi tháng *(tự ước tính)* | ~25 phút/lần đối chiếu 2 bảng + trả lời/soạn tin *(tự ước tính)* | **~6.000 phút/tháng (~100 giờ điều phối)** + tránh cho hàng trăm HV đi nhầm phòng | Có (10 giờ) | **Chọn** |
+| **H1. Đối chiếu phòng & soạn thông báo/trả lời đổi phòng cho Key Coach / Trợ giảng L3A–L3B** | ~12 Key Coach / Trợ giảng trực tiếp (ảnh hưởng >700 HV L3) *(tự ước tính)* | ~20 ca cập nhật hoặc đổi phòng/người/tháng *(tự ước tính)* | ~25 phút/lần đối chiếu 2 bảng + trả lời/soạn tin *(tự ước tính)* | **~6.000 phút/tháng (~100 giờ điều phối)** + tránh cho hàng trăm HV đi nhầm phòng | Có (10 giờ) | **Chọn** |
 | **H2. Tự động xếp lại lịch đổi ca cho 62 Lab Coach từ Google Form** | 2 người Ban đào tạo / Đội trưởng Coach *(tự ước tính)* | ~22 yêu cầu đổi ca / tháng (theo tần suất sheet `Đổi buổi`) | ~15 phút/yêu cầu thương lượng & xếp người thay *(tự ước tính)* | ~330 phút/tháng (~5,5 giờ) | Khó (phụ thuộc thỏa thuận cá nhân qua Zalo) | Không |
 | **H3. Xếp lịch tổng toàn khoá từ form đăng ký giảng viên đầu kỳ** | 2 người Ban đào tạo *(tự ước tính)* | 1–2 lần / tháng (đầu mỗi giai đoạn) | ~180 phút/lần gom form *(tự ước tính)* | ~360 phút/tháng (6 giờ) | Không (bài toán tối ưu tổ hợp lớn, ít lặp lại hàng ngày) | Không |
 

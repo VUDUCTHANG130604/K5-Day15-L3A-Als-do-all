@@ -8,37 +8,33 @@
 |---|---|---|
 | Đào data | ☐ (không làm — data `training-ops` là giả lập, không tính) | — |
 | Phỏng vấn | ☐ (không làm) | — |
-| Khảo sát (≥20 người ngoài nhóm, đúng người dùng) | ☑ **n = 29** — *xem giới hạn ở mục 6* | `evidence/survey/questions.md` · `results.csv` · `count.py` |
+| Khảo sát (ngưỡng rubric: ≥20 người ngoài nhóm, đúng người dùng) | **29 phiếu**, 26 học viên và 3 người vận hành. Xem giới hạn ở mục 6. | `evidence/survey/questions.md` · `results.csv` · `count.py` |
 
-## 2. Số chính (khảo sát, N = 29: 26 học viên, 2 lab coach, 1 key coach / Day Lead; 25 L3A, 4 L3B)
+## 2. Số chính (29 phiếu: 26 học viên, 2 Lab Coach, 1 Key Coach / Day Lead; 25 L3A, 4 L3B)
 
 | Đếm gì (4 tuần qua, trừ khi ghi khác) | x / N | % |
 |---|---|---|
 | Biết ≥1 buổi có phòng **đổi hoặc chỉ chốt trong 24 giờ** trước giờ học (C1) | 27/29 | 93% |
-| … trong đó ≥3 buổi | 9/29 | 31% |
+| Biết ≥3 buổi như vậy (C1) | 9/29 | 31% |
 | **Nhận báo đổi phòng muộn hoặc sau khi đã báo** (C4) | 19/29 | 66% |
 | **Hai nguồn ghi hai phòng khác nhau** (C4) | 14/29 | 48% |
-| Đến nhầm phòng (C4) | 9/29 | 31% |
 | Không biết buổi đã chuyển online (C4) | 8/29 | 28% |
+| Đến nhầm phòng (C4) | 9/29 | 31% |
 | Tên bị lệch danh sách (C4) | 5/29 | 17% |
 | Gặp ≥1 tình huống ở C4 | 26/29 | 90% |
 | Lần gần nhất mất **≥15 phút** mới chắc chắn phòng (C3) | 12/29 | 41% |
-| … mất hơn 30 phút | 6/29 | 21% |
+| Lần gần nhất mất hơn 30 phút (C3) | 6/29 | 21% |
+| Có ≥1 hậu quả về buổi học hoặc điểm danh: đến muộn / lỡ một phần buổi / ảnh hưởng điểm danh, điểm (C6) | 24/29 | 83% |
 | Có ≥1 hậu quả: đến muộn / lỡ một phần buổi / ảnh hưởng điểm danh, điểm / phải nhờ người khác (C6) | 25/29 | 86% |
 | Đến muộn (C6) | 15/29 | 52% |
 | Ảnh hưởng điểm danh hoặc điểm (C6) | 12/29 | 41% |
-| Phải dùng ≥2 kênh mới biết phòng cuối cùng (C2) | 16/29 | 55% |
+| Dùng ≥2 kênh mới biết phòng cuối cùng (C2) | 16/29 | 55% |
 | Không chắc phòng thì hỏi trợ giảng / coach (L1) | 14/29 | 48% |
 
-**Nhánh người vận hành (người soạn / gửi thông báo), n = 3 — không ghi %:**
-
-| | Vai | Số buổi phải đối chiếu / gửi (4 tuần) | Lần gần nhất mất | Nguồn dùng để đối chiếu | Thông báo từng sai / thiếu? | Luôn muốn tự xem lại |
-|---|---|---|---|---|---|---|
-| R03 | Lab coach, L3B | 1–4 | 10–30 phút | Bảng lịch ban đào tạo, bảng đội lab coach, hỏi trực tiếp người phụ trách | Có, **đã có người bị ảnh hưởng** | Không loại nào |
-| R05 | Lab coach, L3A | 0 | Dưới 10 phút | Bảng đội lab coach, form đổi ca | Có, tự sửa kịp | Buổi chuyển online, phòng chưa xác nhận |
-| R28 | Key coach / Day Lead, L3B | 1–4 | **30–60 phút** | Link danh sách nhóm | Có, tự sửa kịp | Phòng chưa xác nhận |
-
-→ **3/3** người vận hành có thông báo từng bị sai hoặc thiếu trong 4 tuần qua; **2/3** mất ≥10 phút mỗi lần; **2/3** muốn tự xem lại thông báo khi phòng chưa xác nhận.
+**Nhánh người vận hành gồm 3 người:**
+- Coach 1 (L3B): 1–4 buổi phải đối chiếu / gửi thông báo trong 4 tuần; lần gần nhất mất 10–30 phút; dùng bảng lịch ban đào tạo + bảng đội lab coach + hỏi trực tiếp người phụ trách; thông báo từng sai và **đã có người bị ảnh hưởng**.
+- Coach 2 (L3A): 0 buổi; dưới 10 phút; dùng bảng đội lab coach + form đổi ca; thông báo từng sai nhưng **tự sửa kịp**; luôn muốn tự xem lại thông báo "buổi chuyển online" và "phòng chưa được xác nhận".
+- Key Coach / Day Lead (L3B, R28) báo 1–4 buổi phải đối chiếu hoặc gửi thông báo trong 4 tuần, lần gần nhất mất 30–60 phút. Người này từng tự sửa thông báo trước khi ai bị ảnh hưởng và muốn duyệt lại thông báo phòng chưa xác nhận.
 
 ## 3. Trích dẫn nguyên văn (câu C5, giữ nguyên chính tả, bỏ thông tin nhận diện)
 
@@ -49,7 +45,7 @@
 5. "lần gần nhất là bi trùng phòng học với lớp khác. Hậu quả phải chờ 30p mới được vào phong" — phiếu R04, học viên L3A
 6. "chùng phòng học và phải chuyển phòng khác" — phiếu R15, học viên L3A
 
-(Mã phiếu R01–R29 = thứ tự dòng trong `results.csv`. R25 "Khá lâu và cần thời gia" và R28 "bạn tôi" quá ngắn, không dùng làm trích dẫn.)
+Mã phiếu R01–R29 tương ứng với thứ tự phản hồi trong `results.csv`, tính từ dòng sau tiêu đề.
 
 ## 4. Các nguồn có khớp nhau không
 
@@ -58,16 +54,16 @@ Chỉ có một nguồn thật (khảo sát) → **chưa có nguồn thứ hai k
 
 ## 5. Kết luận
 
-Giả thuyết (`evidence/hypothesis.md`): **đúng một phần, phải đổi cách nói.**
-- **Rõ ở phía học viên nhận lịch:** phòng đổi / chốt sát giờ là chuyện thường gặp (27/29), thông báo đến muộn (19/29), hai nguồn lệch nhau (14/29), có hậu quả cụ thể (25/29 — đến muộn, lỡ buổi, ảnh hưởng điểm danh).
-- **Có tín hiệu ở phía người soạn thông báo nhưng n quá nhỏ (3):** cả 3 từng gửi thông báo sai / thiếu; key coach duy nhất mất 30–60 phút lần gần nhất, lab coach 10–30 phút và dưới 10 phút. Giả thuyết "20–30 phút / buổi" nằm trong khoảng này nhưng **chưa đủ để kết luận**.
-- **Điều vẫn chưa biết:** thông báo đến muộn là do người gửi chậm (đối chiếu lâu) hay do trường chốt phòng muộn — khảo sát không tách được.
+Giả thuyết (`evidence/hypothesis.md`): **phải đổi.**
+- **Phía nhận lịch:** 19/29 nhận báo đổi phòng muộn, 14/29 gặp hai nguồn ghi hai phòng khác nhau và 25/29 gặp ít nhất một hậu quả ở C6. Học viên chiếm 26/29 phiếu.
+- **Phía soạn thông báo:** có 2 Lab Coach và 1 Key Coach / Day Lead. Người thuộc vai Key Coach / Day Lead duy nhất ở L3B và báo mất 30–60 phút ở lần gần nhất. Mẫu còn nhỏ để ước lượng thời gian đối chiếu điển hình của Key Coach / Trợ giảng L3A. Mức 20–30 phút/buổi trong giả thuyết là *(tự ước tính)*.
+- **Điều vẫn chưa biết:** thông báo đến muộn là do người gửi chậm (đối chiếu lâu) hay do trường chốt phòng muộn — khảo sát không tách được hai nguyên nhân này.
 
 ## 6. Giới hạn
 
-- **Đúng người dùng:** 26/29 là học viên — người *nhận* thông báo, chịu hậu quả; người *soạn* thông báo chỉ n = 3 (1 key coach, 2 lab coach).
-- **Ngoài nhóm:** 10/29 phiếu nhận form qua "Bạn bè trong nhóm làm sản phẩm" (bạn bè của thành viên). Nhóm xác nhận (27/11/2026): **không thành viên nào tự điền form** → N = 29 đều là người ngoài nhóm.
-- Mẫu tự chọn qua nhóm Zalo / bạn bè, lệch về L3A (25/29) → % không đại diện toàn khoá.
-- 2 phiếu vừa chọn tình huống ở C4 vừa chọn "Không gặp" (mâu thuẫn) — vẫn tính theo lựa chọn tình huống; nếu loại 2 phiếu này thì "gặp ≥1 tình huống" là 24/27.
+- **Đúng người dùng:** 26/29 là học viên nhận thông báo. Nhánh vận hành có 3 người, gồm 1 Key Coach / Day Lead ở L3B.
+- **Ngoài nhóm:** Nhóm đã xác nhận 23 phiếu đợt đầu đều từ người ngoài nhóm. Tình trạng này của 6 phiếu bổ sung đang chờ xác nhận. Cột C8 ghi kênh nhận form.
+- Mẫu tự chọn qua nhóm Zalo và bạn bè, tập trung ở L3A (25/29). Các tỷ lệ mô tả mẫu khảo sát.
+- Hai phiếu vừa chọn tình huống ở C4 vừa chọn "Không gặp". Bảng tính theo lựa chọn tình huống. Khi loại hai phiếu này, 24/27 người gặp ít nhất một tình huống ở C4.
 - Không hỏi lớp học cụ thể / ngày → không ghép được với lịch.
 - Câu trả lời thu lúc 2:45–3:57 ngày 27/11/2026; 6 phiếu cuối (R24–R29) nhận sau bản tổng hợp đầu (n = 23) — mọi phiếu đều được giữ, không loại phiếu nào.

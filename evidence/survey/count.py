@@ -61,9 +61,13 @@ print("\n== C6. Hậu quả từng gặp (nhiều lựa chọn), N=%d" % N)
 c6 = Counter(x for r in data for x in set(multi(r, "C6")))
 for k, v in c6.most_common():
     print("  %-40s %s" % (k, pct(v, N)))
-hq = [r for r in data if any(x in ("Đến muộn", "Lỡ một phần buổi", "Ảnh hưởng điểm danh hoặc điểm", "Phải nhờ người khác xử lý")
-                             for x in multi(r, "C6"))]
-print("  Có ≥1 hậu quả cụ thể (đến muộn / lỡ buổi / ảnh hưởng điểm danh / phải nhờ người khác):", pct(len(hq), N))
+study_impacts = {"Đến muộn", "Lỡ một phần buổi", "Ảnh hưởng điểm danh hoặc điểm"}
+reported_impacts = [set(multi(r, "C6")) for r in data]
+study_count = sum(bool(impacts & study_impacts) for impacts in reported_impacts)
+all_impacts = study_impacts | {"Phải nhờ người khác xử lý"}
+all_count = sum(bool(impacts & all_impacts) for impacts in reported_impacts)
+print("  Có ≥1 hậu quả về buổi học hoặc điểm danh:", pct(study_count, N))
+print("  Có ≥1 hậu quả cụ thể (đến muộn / lỡ buổi / ảnh hưởng điểm danh / phải nhờ người khác):", pct(all_count, N))
 
 print("\n== C2. Biết phòng cuối cùng qua đâu (nhiều lựa chọn), N=%d" % N)
 c2 = Counter(x for r in data for x in set(multi(r, "C2")))
