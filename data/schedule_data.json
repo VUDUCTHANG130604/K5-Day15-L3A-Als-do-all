@@ -1,0 +1,482 @@
+{
+  "metadata": {
+    "source_export_time": "21:00 27/04/2027",
+    "official_source_name": "teaching-schedule.xlsx · Sheet Khoá 9 (GĐ1) & Lịch sử chỉnh sửa",
+    "secondary_source_name": "lab-coach-schedule.xlsx · Sheet Lịch lab 1504-2404 & 2604-0805"
+  },
+  "groups": {
+    "L3A": [
+      {"group_id": "L3A-N1", "name": "Nhóm 1 (L3A)", "size": 23, "default_cluster": 1},
+      {"group_id": "L3A-N2", "name": "Nhóm 2 (L3A)", "size": 22, "default_cluster": 1},
+      {"group_id": "L3A-N3", "name": "Nhóm 3 (L3A)", "size": 24, "default_cluster": 2},
+      {"group_id": "L3A-N4", "name": "Nhóm 4 (L3A)", "size": 24, "default_cluster": 2},
+      {"group_id": "L3A-N5", "name": "Nhóm 5 (L3A)", "size": 23, "default_cluster": 3},
+      {"group_id": "L3A-N6", "name": "Nhóm 6 (L3A)", "size": 22, "default_cluster": 3}
+    ],
+    "L3B": [
+      {"group_id": "L3B-N1", "name": "Nhóm 1 (L3B)", "size": 24, "default_cluster": 1},
+      {"group_id": "L3B-N2", "name": "Nhóm 2 (L3B)", "size": 23, "default_cluster": 1},
+      {"group_id": "L3B-N3", "name": "Nhóm 3 (L3B)", "size": 22, "default_cluster": 2},
+      {"group_id": "L3B-N4", "name": "Nhóm 4 (L3B)", "size": 23, "default_cluster": 2},
+      {"group_id": "L3B-N5", "name": "Nhóm 5 (L3B)", "size": 22, "default_cluster": 3},
+      {"group_id": "L3B-N6", "name": "Nhóm 6 (L3B)", "size": 22, "default_cluster": 3}
+    ],
+    "L2A": [
+      {"group_id": "L2A-N1", "name": "Nhóm 1-2 (L2A)", "size": 40, "default_cluster": 1},
+      {"group_id": "L2A-N2", "name": "Nhóm 3-4 (L2A)", "size": 38, "default_cluster": 2}
+    ],
+    "L2B": [
+      {"group_id": "L2B-N1", "name": "Nhóm 1-2 (L2B)", "size": 44, "default_cluster": 1}
+    ]
+  },
+  "staff_aliases": {
+    "Lecturer C.": "Giảng viên Cường",
+    "GV E": "Giảng viên Minh Đức",
+    "Support  D": "Trợ giảng Duy",
+    "Labcoach AY": "Lab Coach Ánh Yên",
+    "Lab Coach  J": "Lab Coach Giang",
+    "Lecturer B": "Giảng viên Bảo"
+  },
+  "sessions": [
+    {
+      "session_id": "2027-04-22_L3A_LAB5",
+      "date": "22/04",
+      "date_iso": "2027-04-22",
+      "shift": "Chiều",
+      "time": "14:00-18:00",
+      "class_name": "L3A",
+      "session_code": "LAB 5",
+      "topic": "LAB 5: Prompt Engineering & Structured Output",
+      "official_cell": "K9-GD1/F18",
+      "official_status": "CONFIRMED",
+      "official_rooms": ["D201", "D202", "D203"],
+      "previous_rooms": ["C301", "C302", "C303"],
+      "changed_after_confirm": true,
+      "time_changed": false,
+      "edit_history": [
+        {
+          "code": "EDIT-2104-2000",
+          "time": "20:00 21/04/2027",
+          "cell": "F18",
+          "before": "Phòng dự kiến: C301, C302, C303 (chờ xác nhận)",
+          "after": "Phòng: C301, C302, C303 (đã xác nhận lần 1)"
+        },
+        {
+          "code": "EDIT-2204-1130",
+          "time": "11:30 22/04/2027",
+          "cell": "F18",
+          "before": "Phòng: C301, C302, C303",
+          "after": "Phòng: D201, D202, D203 (ĐỔI PHÒNG sau khi đã xác nhận do trường trưng dụng khu C)"
+        }
+      ],
+      "lab_sheet_code": "LAB-SHEET/2204-L3A",
+      "lab_sheet_status": "STALE_CONFIRMED",
+      "lab_sheet_rooms": ["C301", "C302", "C303"],
+      "key_coach": "Key Coach Minh",
+      "coaches": [
+        {"raw_name": "Lab Coach An", "standard_name": "Lab Coach An", "room": "D201", "capacity": 48, "groups": ["Nhóm 1 (L3A)", "Nhóm 2 (L3A)"]},
+        {"raw_name": "Lab Coach Bình", "standard_name": "Lab Coach Bình", "room": "D202", "capacity": 48, "groups": ["Nhóm 3 (L3A)", "Nhóm 4 (L3A)"]},
+        {"raw_name": "Lab Coach Chi", "standard_name": "Lab Coach Chi", "room": "D203", "capacity": 48, "groups": ["Nhóm 5 (L3A)", "Nhóm 6 (L3A)"]}
+      ]
+    },
+    {
+      "session_id": "2027-04-23_L3B_LAB7",
+      "date": "23/04",
+      "date_iso": "2027-04-23",
+      "shift": "Chiều-Tối",
+      "time": "16:30-20:00",
+      "previous_time": "14:00-18:00",
+      "class_name": "L3B",
+      "session_code": "LAB 7",
+      "topic": "LAB 7: Retrieval & Source Grounding",
+      "official_cell": "K9-GD1/F23",
+      "official_status": "CONFIRMED",
+      "official_rooms": ["H209", "H210", "C401"],
+      "previous_rooms": [],
+      "changed_after_confirm": false,
+      "time_changed": true,
+      "edit_history": [
+        {
+          "code": "EDIT-2204-2210",
+          "time": "22:10 22/04/2027",
+          "cell": "F23",
+          "before": "14:00-18:00 · Phòng: H209, H210, C401",
+          "after": "ĐỔI GIỜ sang 16:30-20:00 (lùi giờ theo lịch phòng máy trường) · Phòng: H209, H210, C401"
+        }
+      ],
+      "lab_sheet_code": "LAB-SHEET/2304-L3B",
+      "lab_sheet_status": "CONFIRMED",
+      "lab_sheet_rooms": ["H209", "H210", "C401"],
+      "key_coach": "Key Coach Tuấn",
+      "coaches": [
+        {"raw_name": "Labcoach AY", "standard_name": "Lab Coach Ánh Yên", "room": "H209", "capacity": 50, "groups": ["Nhóm 1 (L3B)", "Nhóm 2 (L3B)"]},
+        {"raw_name": "Lab Coach  J", "standard_name": "Lab Coach Giang", "room": "H210", "capacity": 50, "groups": ["Nhóm 3 (L3B)", "Nhóm 4 (L3B)"]},
+        {"raw_name": "Lab Coach Khoa", "standard_name": "Lab Coach Khoa", "room": "C401", "capacity": 45, "groups": ["Nhóm 5 (L3B)", "Nhóm 6 (L3B)"]}
+      ]
+    },
+    {
+      "session_id": "2027-04-25_L3AB_LEC8",
+      "date": "25/04",
+      "date_iso": "2027-04-25",
+      "shift": "Sáng",
+      "time": "09:00-13:00",
+      "class_name": "L3A",
+      "also_applies_to": ["L3B", "L3AB"],
+      "session_code": "LEC 8",
+      "topic": "LEC 8: AI Safety, Guardrails & Red Teaming (Gộp L3A + L3B học Online)",
+      "official_cell": "K9-GD1/D24-E24",
+      "official_status": "ONLINE",
+      "official_rooms": ["Online"],
+      "previous_rooms": ["H209", "H210"],
+      "changed_after_confirm": true,
+      "time_changed": false,
+      "online_note": "Buổi học chuyển sang hình thức ONLINE (gộp L3A và L3B). Ô lịch chưa đính kèm link Zoom/Meet — Key Coach cần bổ sung link phòng học trực tuyến từ BTC trước khi gửi.",
+      "edit_history": [
+        {
+          "code": "EDIT-2404-1945",
+          "time": "19:45 24/04/2027",
+          "cell": "D24:E24",
+          "before": "Phòng dự kiến: H209, H210",
+          "after": "Chuyển sang học ONLINE (gộp L3AB) do trường bảo trì điện khu H"
+        }
+      ],
+      "lab_sheet_code": "LAB-SHEET/2504-L3AB",
+      "lab_sheet_status": "STALE_DK",
+      "lab_sheet_rooms": ["dk: H209", "dk: H210"],
+      "key_coach": "Key Coach Minh",
+      "lecturer": {"raw_name": "Lecturer C.", "standard_name": "Giảng viên Cường"},
+      "coaches": []
+    },
+    {
+      "session_id": "2027-04-26_L3A_LAB8",
+      "date": "26/04",
+      "date_iso": "2027-04-26",
+      "shift": "Chiều",
+      "time": "14:00-18:00",
+      "class_name": "L3A",
+      "session_code": "LAB 8",
+      "topic": "LAB 8: Tool Calling & Deterministic Checks",
+      "official_cell": "K9-GD1/F25",
+      "official_status": "CONFIRMED",
+      "official_rooms": ["C301", "C302", "F305"],
+      "previous_rooms": [],
+      "changed_after_confirm": false,
+      "time_changed": false,
+      "edit_history": [
+        {
+          "code": "EDIT-2504-2100",
+          "time": "21:00 25/04/2027",
+          "cell": "F25",
+          "before": "Phòng dự kiến: C301, C302, F305 (chờ xác nhận)",
+          "after": "Phòng: C301, C302, F305 (đã xác nhận chính thức)"
+        }
+      ],
+      "lab_sheet_code": "LAB-SHEET/2604-L3A",
+      "lab_sheet_status": "DK_SAME_ROOM",
+      "lab_sheet_rooms": ["dk: C301", "dk: C302", "dk: F305"],
+      "key_coach": "Key Coach Minh",
+      "coaches": [
+        {"raw_name": "Lab Coach An", "standard_name": "Lab Coach An", "room": "C301", "capacity": 48, "groups": ["Nhóm 1 (L3A)", "Nhóm 2 (L3A)"]},
+        {"raw_name": "Lab Coach Bình", "standard_name": "Lab Coach Bình", "room": "C302", "capacity": 48, "groups": ["Nhóm 3 (L3A)", "Nhóm 4 (L3A)"]},
+        {"raw_name": "Lab Coach Chi", "standard_name": "Lab Coach Chi", "room": "F305", "capacity": 48, "groups": ["Nhóm 5 (L3A)", "Nhóm 6 (L3A)"]}
+      ]
+    },
+    {
+      "session_id": "2027-04-27_L3A_LAB9",
+      "date": "27/04",
+      "date_iso": "2027-04-27",
+      "shift": "Sáng",
+      "time": "09:00-13:00",
+      "class_name": "L3A",
+      "session_code": "LAB 9",
+      "topic": "LAB 9: Evaluation Benchmark & Metric Spec",
+      "official_cell": "K9-GD1/F26",
+      "official_status": "CONFIRMED",
+      "official_rooms": ["H209", "H210", "H202"],
+      "previous_rooms": [],
+      "changed_after_confirm": false,
+      "time_changed": false,
+      "edit_history": [
+        {
+          "code": "EDIT-2604-2030",
+          "time": "20:30 26/04/2027",
+          "cell": "F26",
+          "before": "Phòng dự kiến: H209, H210, H202",
+          "after": "Phòng: H209, H210, H202 (đã xác nhận chính thức)"
+        }
+      ],
+      "lab_sheet_code": "LAB-SHEET/2704S-L3A",
+      "lab_sheet_status": "DK_SAME_ROOM",
+      "lab_sheet_rooms": ["dk: H209", "dk: H210", "dk: H202"],
+      "key_coach": "Key Coach Minh",
+      "coaches": [
+        {"raw_name": "Lab Coach An", "standard_name": "Lab Coach An", "room": "H209", "capacity": 50, "groups": ["Nhóm 1 (L3A)", "Nhóm 2 (L3A)"]},
+        {"raw_name": "Lab Coach Bình", "standard_name": "Lab Coach Bình", "room": "H210", "capacity": 50, "groups": ["Nhóm 3 (L3A)", "Nhóm 4 (L3A)"]},
+        {"raw_name": "Lab Coach Chi", "standard_name": "Lab Coach Chi", "room": "H202", "capacity": 48, "groups": ["Nhóm 5 (L3A)", "Nhóm 6 (L3A)"]}
+      ]
+    },
+    {
+      "session_id": "2027-04-27_L3A_LAB10",
+      "date": "27/04",
+      "date_iso": "2027-04-27",
+      "shift": "Chiều",
+      "time": "14:00-18:00",
+      "class_name": "L3A",
+      "session_code": "LAB 10",
+      "topic": "LAB 10: Cost Simulation & Unit Economics",
+      "official_cell": "K9-GD1/F27",
+      "official_status": "CONFIRMED",
+      "official_rooms": ["C302", "F307", "H202"],
+      "previous_rooms": [],
+      "changed_after_confirm": false,
+      "time_changed": false,
+      "edit_history": [
+        {
+          "code": "EDIT-2604-2245",
+          "time": "22:45 26/04/2027",
+          "cell": "F27",
+          "before": "Phòng: chờ xác nhận",
+          "after": "Phòng: C302, F307, H202 (đã xác nhận chính thức lúc 22:45)"
+        }
+      ],
+      "lab_sheet_code": "LAB-SHEET/2704C-L3A",
+      "lab_sheet_status": "PENDING_IN_LAB_SHEET",
+      "lab_sheet_rooms": ["chờ xác nhận"],
+      "key_coach": "Key Coach Minh",
+      "coaches": [
+        {"raw_name": "Lab Coach An", "standard_name": "Lab Coach An", "room": "C302", "capacity": 48, "groups": ["Nhóm 1 (L3A)", "Nhóm 2 (L3A)"]},
+        {"raw_name": "Lab Coach Bình", "standard_name": "Lab Coach Bình", "room": "F307", "capacity": 48, "groups": ["Nhóm 3 (L3A)", "Nhóm 4 (L3A)"]},
+        {"raw_name": "Lab Coach Dũng", "standard_name": "Lab Coach Dũng", "room": "H202", "capacity": 48, "groups": ["Nhóm 5 (L3A)", "Nhóm 6 (L3A)"]}
+      ]
+    },
+    {
+      "session_id": "2027-04-27_L2B_LAB9",
+      "date": "27/04",
+      "date_iso": "2027-04-27",
+      "shift": "Chiều",
+      "time": "14:00-18:00",
+      "class_name": "L2B",
+      "session_code": "LAB 9",
+      "topic": "L2B — LAB 9: Workflow Automation",
+      "official_cell": "K9-GD1/H27",
+      "official_status": "CONFIRMED",
+      "official_rooms": ["H210"],
+      "previous_rooms": [],
+      "changed_after_confirm": false,
+      "time_changed": false,
+      "edit_history": [
+        {
+          "code": "EDIT-2604-2130",
+          "time": "21:30 26/04/2027",
+          "cell": "H27",
+          "before": "Phòng: chờ xác nhận",
+          "after": "Phòng: H210 (đã xác nhận)"
+        }
+      ],
+      "lab_sheet_code": "LAB-SHEET/2704C-L2B",
+      "lab_sheet_status": "PENDING_IN_LAB_SHEET",
+      "lab_sheet_rooms": ["chờ xác nhận"],
+      "key_coach": "Key Coach Lan",
+      "coaches": [
+        {"raw_name": "Support  D", "standard_name": "Trợ giảng Duy", "room": "H210", "capacity": 50, "groups": ["Nhóm 1-2 (L2B)"]}
+      ]
+    },
+    {
+      "session_id": "2027-04-28_L3B_LAB10",
+      "date": "28/04",
+      "date_iso": "2027-04-28",
+      "shift": "Chiều",
+      "time": "14:00-18:00",
+      "class_name": "L3B",
+      "session_code": "LAB 10",
+      "topic": "LAB 10: Cost Simulation & Unit Economics (L3B)",
+      "official_cell": "K9-GD1/F29",
+      "official_status": "CONFIRMED",
+      "official_rooms": ["E401", "E402", "F307"],
+      "previous_rooms": ["C301", "C302", "F307"],
+      "changed_after_confirm": true,
+      "time_changed": false,
+      "edit_history": [
+        {
+          "code": "EDIT-2704-1800",
+          "time": "18:00 27/04/2027",
+          "cell": "F29",
+          "before": "Phòng: chờ xác nhận",
+          "after": "Phòng: C301, C302, F307 (xác nhận lần 1)"
+        },
+        {
+          "code": "EDIT-2704-2050",
+          "time": "20:50 27/04/2027",
+          "cell": "F29",
+          "before": "Phòng: C301, C302, F307",
+          "after": "Phòng: E401, E402, F307 (ĐỔI LẦN 2 sau khi đã xác nhận: chuyển C301, C302 sang E401, E402)"
+        }
+      ],
+      "lab_sheet_code": "LAB-SHEET/2804-L3B",
+      "lab_sheet_status": "PENDING_IN_LAB_SHEET",
+      "lab_sheet_rooms": ["chờ xác nhận"],
+      "key_coach": "Key Coach Tuấn",
+      "coaches": [
+        {"raw_name": "Labcoach AY", "standard_name": "Lab Coach Ánh Yên", "room": "E401", "capacity": 48, "groups": ["Nhóm 1 (L3B)", "Nhóm 2 (L3B)"]},
+        {"raw_name": "Lab Coach  J", "standard_name": "Lab Coach Giang", "room": "E402", "capacity": 48, "groups": ["Nhóm 3 (L3B)", "Nhóm 4 (L3B)"]},
+        {"raw_name": "Lab Coach Khoa", "standard_name": "Lab Coach Khoa", "room": "F307", "capacity": 45, "groups": ["Nhóm 5 (L3B)", "Nhóm 6 (L3B)"]}
+      ]
+    },
+    {
+      "session_id": "2027-04-28_L2A_LAB10",
+      "date": "28/04",
+      "date_iso": "2027-04-28",
+      "shift": "Chiều",
+      "time": "14:00-18:00",
+      "class_name": "L2A",
+      "session_code": "LAB 10",
+      "topic": "L2A — LAB 10: Agentic Workflows",
+      "official_cell": "K9-GD1/G29",
+      "official_status": "CONFIRMED",
+      "official_rooms": ["C401", "F307"],
+      "previous_rooms": [],
+      "changed_after_confirm": false,
+      "time_changed": false,
+      "edit_history": [
+        {
+          "code": "EDIT-2704-1900",
+          "time": "19:00 27/04/2027",
+          "cell": "G29",
+          "before": "Phòng dự kiến: C401, F307",
+          "after": "Phòng: C401, F307 (đã xác nhận)"
+        }
+      ],
+      "lab_sheet_code": "LAB-SHEET/2804-L2A",
+      "lab_sheet_status": "DK_SAME_ROOM",
+      "lab_sheet_rooms": ["dk: C401", "dk: F307"],
+      "key_coach": "Key Coach Hùng",
+      "coaches": [
+        {"raw_name": "Lab Coach Nam", "standard_name": "Lab Coach Nam", "room": "C401", "capacity": 45, "groups": ["Nhóm 1-2 (L2A)"]},
+        {"raw_name": "Lab Coach Khoa", "standard_name": "Lab Coach Khoa", "room": "F307", "capacity": 45, "groups": ["Nhóm 3-4 (L2A)"]}
+      ]
+    },
+    {
+      "session_id": "2027-04-29_L3A_LEC11",
+      "date": "29/04",
+      "date_iso": "2027-04-29",
+      "shift": "Chiều",
+      "time": "14:00-18:00",
+      "class_name": "L3A",
+      "session_code": "LEC 11",
+      "topic": "L3A — LEC 11: Production Deployment & Monitoring",
+      "official_cell": "K9-GD1/D31",
+      "official_status": "CONFIRMED",
+      "official_rooms": ["H209", "H210"],
+      "extra_rooms": ["H202 (phòng phụ livestream)"],
+      "previous_rooms": [],
+      "changed_after_confirm": false,
+      "time_changed": false,
+      "edit_history": [],
+      "lab_sheet_code": "LAB-SHEET/2904-L3A",
+      "lab_sheet_status": "CONFIRMED",
+      "lab_sheet_rooms": ["H209", "H210", "H202"],
+      "key_coach": "Key Coach Minh",
+      "lecturer": {"raw_name": "GV E", "standard_name": "Giảng viên Minh Đức"},
+      "coaches": []
+    },
+    {
+      "session_id": "2027-04-29_L2A_LAB11",
+      "date": "29/04",
+      "date_iso": "2027-04-29",
+      "shift": "Chiều",
+      "time": "14:00-18:00",
+      "class_name": "L2A",
+      "session_code": "LAB 11",
+      "topic": "L2A — LAB 11: Capstone Preparation",
+      "official_cell": "K9-GD1/G31",
+      "official_status": "PENDING",
+      "official_rooms": [],
+      "previous_rooms": [],
+      "changed_after_confirm": false,
+      "time_changed": false,
+      "edit_history": [],
+      "lab_sheet_code": "LAB-SHEET/2904-L2A",
+      "lab_sheet_status": "DK_WHILE_OFFICIAL_PENDING",
+      "lab_sheet_rooms": ["dk: C301", "dk: C302"],
+      "key_coach": "Key Coach Hùng",
+      "coaches": [
+        {"raw_name": "Lab Coach Nam", "standard_name": "Lab Coach Nam", "room": "dk: C301", "capacity": 45, "groups": ["Nhóm 1-2 (L2A)"]},
+        {"raw_name": "Lab Coach Khoa", "standard_name": "Lab Coach Khoa", "room": "dk: C302", "capacity": 45, "groups": ["Nhóm 3-4 (L2A)"]}
+      ]
+    },
+    {
+      "session_id": "2027-04-30_ALL_HOLIDAY",
+      "date": "30/04",
+      "date_iso": "2027-04-30",
+      "shift": "Cả ngày",
+      "time": "Nghỉ lễ",
+      "class_name": "ALL",
+      "also_applies_to": ["L3A", "L3B", "L2A", "L2B"],
+      "session_code": "HOLIDAY",
+      "topic": "Nghỉ lễ 30/04 – 01/05 (Không có lớp học)",
+      "official_cell": "K9-GD1/D32-H35",
+      "official_status": "HOLIDAY",
+      "official_rooms": [],
+      "previous_rooms": [],
+      "changed_after_confirm": false,
+      "time_changed": false,
+      "edit_history": [],
+      "lab_sheet_code": "LAB-SHEET/3004",
+      "lab_sheet_status": "HOLIDAY",
+      "lab_sheet_rooms": [],
+      "key_coach": "",
+      "coaches": []
+    },
+    {
+      "session_id": "2027-05-03_L3A_LAB11",
+      "date": "03/05",
+      "date_iso": "2027-05-03",
+      "shift": "Chiều",
+      "time": "14:00-18:00",
+      "class_name": "L3A",
+      "session_code": "LAB 11",
+      "topic": "L3A — LAB 11: End-to-End AI Product Integration",
+      "official_cell": "K9-GD1/F38",
+      "official_status": "PENDING",
+      "official_rooms": [],
+      "previous_rooms": [],
+      "changed_after_confirm": false,
+      "time_changed": false,
+      "edit_history": [],
+      "lab_sheet_code": "LAB-SHEET/0305-L3A",
+      "lab_sheet_status": "DK_WHILE_OFFICIAL_PENDING",
+      "lab_sheet_rooms": ["dk: C302", "dk: F307", "dk: H202"],
+      "key_coach": "Key Coach Minh",
+      "coaches": [
+        {"raw_name": "Lab Coach An", "standard_name": "Lab Coach An", "room": "dk: C302", "capacity": 45, "groups": ["Nhóm 1 (L3A)", "Nhóm 2 (L3A)"]},
+        {"raw_name": "Lab Coach Bình", "standard_name": "Lab Coach Bình", "room": "dk: F307", "capacity": 40, "groups": ["Nhóm 3 (L3A)", "Nhóm 4 (L3A)"]},
+        {"raw_name": "Lab Coach Chi", "standard_name": "Lab Coach Chi", "room": "dk: H202", "capacity": 45, "groups": ["Nhóm 5 (L3A)", "Nhóm 6 (L3A)"]}
+      ]
+    },
+    {
+      "session_id": "2027-05-08_L3B_HACKATHON",
+      "date": "08/05",
+      "date_iso": "2027-05-08",
+      "shift": "Cả ngày",
+      "time": "09:00-18:00",
+      "class_name": "L3B",
+      "session_code": "HACKATHON",
+      "topic": "HACKATHON L3B (Buổi có trên bảng Lab Coach nhưng CHƯA CÓ trên bảng phân công chính thức Khoá 9 GĐ1)",
+      "official_cell": "K9-GD1/F47 (trống)",
+      "official_status": "MISSING_IN_OFFICIAL",
+      "official_rooms": [],
+      "previous_rooms": [],
+      "changed_after_confirm": false,
+      "time_changed": false,
+      "edit_history": [],
+      "lab_sheet_code": "LAB-SHEET/0805-L3B",
+      "lab_sheet_status": "UNLISTED_IN_OFFICIAL",
+      "lab_sheet_rooms": ["dk: H209", "dk: H210"],
+      "key_coach": "Key Coach Tuấn",
+      "coaches": [
+        {"raw_name": "Labcoach AY", "standard_name": "Lab Coach Ánh Yên", "room": "dk: H209", "capacity": 50, "groups": ["Nhóm 1 (L3B)", "Nhóm 2 (L3B)", "Nhóm 3 (L3B)"]},
+        {"raw_name": "Lab Coach  J", "standard_name": "Lab Coach Giang", "room": "dk: H210", "capacity": 50, "groups": ["Nhóm 4 (L3B)", "Nhóm 5 (L3B)", "Nhóm 6 (L3B)"]}
+      ]
+    }
+  ]
+}
