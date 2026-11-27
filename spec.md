@@ -202,7 +202,7 @@ Kịch bản làm nhóm sợ nhất khi demo: **#2** — bảng lab coach đã c
 | Thời điểm | Đổi gì | Vì sao (trỏ về câu thử / lỗi / bằng chứng nào) |
 |---|---|---|
 | 19:00 27/11 (CP2) | Chốt kiến trúc Workflow cố định 3 công cụ (`get_schedule`, `check_conflicts`, `draft_notice`), bộ 20 câu thử, 4 metric và chuẩn "đạt" tại §7 | Đảm bảo tách bạch kiểm tra xung đột bằng code thuần và AI soạn bản nháp có hậu kiểm mã nguồn |
-| 27/11, trước 19:30 (CP2) | Thay `data/schedule_data.json` viết tay bằng bản trích tự động từ xlsx (`data/build_schedule.py`); viết lại 28 câu thử theo data thật; sửa nhãn nguồn câu thử thành `tu_viet`/`sinh_seed`; cài hậu kiểm mã phòng G2 trong `draft_notice`; G1 nhận diện theo loại yêu cầu thay cho so khớp chữ; chỉnh định nghĩa metric theo nhóm câu. Chuẩn "đạt" §7 giữ nguyên | Bản cũ có 10/14 buổi lệch xlsx (phòng, ca, ô không tồn tại), nhãn nguồn `nguoi_dung` không có ghi chép đi kèm, code chưa làm đúng hậu kiểm mô tả ở §4 |
+| 27/11, trước 19:30 (CP2) | Thay `data/schedule_data.json` viết tay bằng bản trích tự động từ xlsx (`data/build_schedule.py`), viết lại 28 câu thử theo ô dữ liệu giả lập, ghi nhãn nguồn `tu_viet`/`sinh_seed` và chỉnh định nghĩa metric theo nhóm câu. G1 nhận diện theo loại yêu cầu và `draft_notice` hậu kiểm mã phòng. | Bản cũ có 10/14 buổi lệch xlsx (phòng, ca, ô không tồn tại), nhãn nguồn `nguoi_dung` thiếu ghi chép đi kèm và code chưa làm đủ hậu kiểm mô tả ở §4. |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)** (sửa theo góp ý — không sửa chuẩn "đạt", câu thử, số bằng chứng, kết quả các lượt đã chạy)
 

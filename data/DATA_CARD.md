@@ -31,6 +31,6 @@
 
 | | |
 |---|---|
-| Từ đâu | Nhóm tự viết (`tu_viet`, 27 câu) và 1 câu dựa trên danh sách nhóm sinh có seed (`sinh_seed`). Mỗi `expected` trỏ về ô / dòng cụ thể trong xlsx (ghi ở cột `source`) |
+| Từ đâu | Nhóm tự viết (`tu_viet`, 27 câu) và 1 câu dựa trên danh sách nhóm sinh có seed (`sinh_seed`). Các ca tra lịch dùng ô hoặc dòng nguồn trong XLSX giả lập. Các ca thiếu thông tin và từ chối dùng tiêu chí hành vi ghi trong benchmark. |
 | Số dòng | 28 câu: `thuong` 9 · `kho` 14 · `tu_choi` 5 |
-| Giới hạn | **Chưa có câu nào từ lời người dùng thật hoặc data thật** (0/28; rubric R4 cần ≥ 1/3 ở CP3). Câu thêm từ khảo sát / kênh công khai sau này sẽ được **thêm** vào bộ, không sửa câu cũ |
+| Giới hạn | Có **0/28 câu** được xác minh từ lời người dùng hoặc dữ liệu thực tế. Với quy mô 28 câu, rubric R4 cần ít nhất **10 câu** có nguồn thực tế kiểm được. |

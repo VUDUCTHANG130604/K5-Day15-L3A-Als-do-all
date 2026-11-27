@@ -11,8 +11,8 @@
 ## 2. Bộ câu thử dựng ra sao
 
 - `eval/benchmark.csv`: **28** câu — `thuong` **9** · `kho` **14** · `tu_choi` **5** (gồm **2** câu tấn công chèn lệnh: B25 lệnh lộ liễu, B26 lệnh giấu trong ghi chú dán vào).
-- Nguồn: `tu_viet` **27** · `sinh_seed` **1** · từ người dùng / data thật **0/28** → **chưa đạt** ngưỡng ≥ 1/3 của R4; cần bổ sung câu từ nguồn thật trước CP3 (chỉ thêm, không sửa câu cũ).
-- Mỗi `expected` lấy từ ô / dòng cụ thể trong xlsx (cột `source`), không lấy từ output của bản chạy thử.
+- Nguồn: `tu_viet` **27** · `sinh_seed` **1** · từ người dùng hoặc dữ liệu thật **0/28**. Với quy mô 28 câu, cần ít nhất **10 câu** có nguồn thực tế kiểm được để đạt ngưỡng ≥ 1/3 của R4.
+- Các ca tra lịch đối chiếu với ô hoặc dòng trong XLSX giả lập. Các ca thiếu thông tin hoặc từ chối được chấm theo hành vi mong đợi trong `pass_criterion`.
 - **Lưới input** (đổi giá trị thì đáp án phải đổi):
   1. Trạng thái ở bảng chính thức: đã chốt · chờ xác nhận (có / không có phòng dự kiến) · không rõ (ô sai định dạng) · online · nghỉ lễ · không có buổi.
   2. Bảng lab coach so với bảng chính thức: khớp · còn `dk` · còn `chờ xác nhận` · có `dk` khi bảng chính còn chờ.
