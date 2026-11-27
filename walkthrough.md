@@ -1,7 +1,7 @@
 # Walkthrough — Hoàn thiện Checkpoint 2 (CP2 · Đề tài A5: RoomSync L3A)
 
 > [!IMPORTANT]
-> Demo CP2 chạy được với model giả. `python run.py check` kiểm được cấu trúc 28 câu và 4 metric, đồng thời cảnh báo **0/28 câu có nguồn thực tế**. [Canvas](canvas.md) đang chờ số liệu và một trích dẫn nguyên văn từ ghi chép đã ẩn danh.
+> Demo CP2 chạy được với model giả. `python run.py check` kiểm được cấu trúc 28 câu và 4 metric, đồng thời cảnh báo **0/28 câu thử có nguồn thực tế**. [Canvas](canvas.md) có số liệu từ 29 phiếu khảo sát và trích dẫn R23.
 
 ---
 
@@ -99,6 +99,6 @@ Cần xem lại:
 
 ## 5. Bước tiếp theo chuẩn bị cho CP3 (10:00 Thứ Bảy 28/11)
 
-1. **Chốt bằng chứng ban đầu cho CP2.** Bổ sung số liệu và một câu trích dẫn đã ẩn danh vào canvas, kèm biên bản để đối chiếu.
+1. **Kiểm chứng thêm ở phía vận hành.** Khảo sát hiện có 3 phiếu từ người vận hành, gồm 1 Key Coach / Day Lead ở L3B. [Hồ sơ khảo sát](evidence/summary.md).
 2. **Nối Model thật (Tối Thứ Sáu):** Sao chép `.env.example` thành `.env`, điền `MODEL_PROVIDER`, `MODEL_NAME`, `API_KEY` và chạy `python run.py eval --try` → `python run.py eval` để lấy `eval/run-1.csv`.
 3. **Hoàn thiện Bằng chứng Pain (`evidence/`):** Điền biên bản phỏng vấn `evidence/interviews/P1.md`..`P3.md` và tổng hợp ≥ 5 trích dẫn nguyên văn vào `evidence/summary.md`.

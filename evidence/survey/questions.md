@@ -1,8 +1,7 @@
 # Khảo sát "Lịch và phòng học/lab" — bộ câu hỏi và cách thu
 
-- **Công cụ:** Google Form. Bản xuất câu trả lời: `results.csv` (không có cột tên / email / SĐT / mã học viên — form không hỏi).
-- **Kênh gửi** (theo câu C8 người trả lời tự chọn): nhóm Zalo lớp (9), bạn bè của nhóm làm sản phẩm (6), nhóm khác (5), khác (3).
-- **Thời gian nhận câu trả lời:** dấu thời gian trong bản xuất từ 2:45:36 đến 3:17:15 ngày 27/11/2026 (theo đồng hồ của Google Form).
+- **Công cụ:** Google Form. Bản xuất ngày 27/11/2026 trong `results.csv` có 29 phản hồi và chỉ giữ các cột câu hỏi. Form không hỏi tên, email, số điện thoại hoặc mã học viên.
+- **Kênh gửi** theo câu C8: nhóm Zalo lớp (10), bạn bè của nhóm làm sản phẩm (10), nhóm khác (6), khác (3).
 - **Đếm:** `python evidence/survey/count.py`.
 - Form rẽ nhánh: người vận hành (lab coach / trợ giảng / key coach) trả lời nhánh **O**; mọi người trả lời nhánh **L** và **C**.
 
