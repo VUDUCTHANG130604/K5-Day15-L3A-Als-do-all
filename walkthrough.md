@@ -1,7 +1,7 @@
 # Walkthrough — Hoàn thiện Checkpoint 2 (CP2 · Đề tài A5: RoomSync L3A)
 
 > [!IMPORTANT]
-> Hồ sơ kỹ thuật CP2 đã qua `python run.py check` với **0 cảnh báo**. Phần bằng chứng trong [canvas](canvas.md) đang chờ một câu trích dẫn nguyên văn từ biên bản phỏng vấn. Chuẩn đạt và bộ metric được ghi tại [spec §7](spec.md) và [metric spec](eval/metric_spec.yaml).
+> Demo CP2 chạy được với model giả. `python run.py check` kiểm được cấu trúc 28 câu và 4 metric, đồng thời cảnh báo **0/28 câu có nguồn thực tế**. [Canvas](canvas.md) đang chờ số liệu và một trích dẫn nguyên văn từ ghi chép đã ẩn danh.
 
 ---
 
@@ -22,7 +22,7 @@ flowchart LR
 
     subgraph CORE["2. AI CORE (Workflow cố định)"]
         T1["Tool: get_schedule()<br/>Trích lịch chuẩn, lịch sử sửa, nhóm & coach"]
-        T2["Tool: check_conflicts() [CODE THUẦN]<br/>So lệch 2 bảng, bắt trùng phòng/người,<br/>kiểm tra vượt sức chứa & đổi phòng"]
+        T2["Tool: check_conflicts() [CODE THUẦN]<br/>So lệch hai bảng, phát hiện lịch chồng giờ,<br/>kiểm tra đổi phòng, đổi giờ và đổi giảng viên"]
         LLM["Model AI: call_model()<br/>Phân loại trạng thái (Đã chốt / Đổi phòng /<br/>Chưa xác nhận) & tổng hợp nội dung"]
         T3["Tool: draft_notice()<br/>Đóng gói bản nháp thông báo kèm mã nguồn"]
     end
@@ -61,16 +61,8 @@ flowchart LR
   * **≥ 85%** tổng số câu thử trong [eval/benchmark.csv](eval/benchmark.csv) đạt (`pass = 1`).
   * **100%** câu thuộc loại `tu_choi` đạt (từ chối đúng mọi yêu cầu ngoài thẩm quyền và câu tấn công Prompt Injection).
   * **100%** câu trả lời không bịa mã phòng ngoài bảng phân công chính thức (0 trường hợp báo phòng dự kiến `dk` hoặc phòng chưa xác nhận thành phòng đã chốt).
-* **Bộ 4 Metric trong [eval/metric_spec.yaml](eval/metric_spec.yaml):**
-  1. `dung_phong_va_ma_nguon` (`>= 90% câu thuong và kho`)
-  2. `khong_bia_phong_chua_xac_nhan` (`100% câu kho thuộc lớp 1 và lớp 2`)
-  3. `canh_bao_doi_phong_va_xung_dot` (`>= 85% câu kho thuộc lớp 4`)
-  4. `chan_ngoai_pham_vi_va_tan_cong` (`100% câu tu_choi`)
-* **Bộ 20 câu thử trong [eval/benchmark.csv](eval/benchmark.csv):**
-  * `thuong`: **11 câu** (`B01`–`B11`)
-  * `kho`: **6 câu** (`B12`–`B17`, phủ đủ 4 lớp chỗ khó ở [spec.md](spec.md) §5)
-  * `tu_choi`: **3 câu** (`B18`–`B20`, gồm 2 câu tấn công Prompt Injection & khai thác PII)
-  * Tỷ lệ theo nhãn `nguoi_dung` và `data_that`: **8/20 câu (40%)**. Xem [data card](data/DATA_CARD.md) để đối chiếu nguồn từng câu.
+* **Bộ 4 metric:** `dung_phong_dung_nguon`, `khong_bao_chac_khi_chua_chac`, `canh_bao_bien_dong` và `tu_choi_dung_va_giu_su_that`. Ngưỡng và nhóm câu ghi trong [hồ sơ đánh giá](eval/README.md).
+* **Bộ 28 câu thử** gồm 9 `thuong`, 14 `kho` và 5 `tu_choi`. Nguồn hiện có 27 câu `tu_viet` và 1 câu `sinh_seed`. [Benchmark](eval/benchmark.csv)
 
 ---
 
@@ -78,10 +70,10 @@ flowchart LR
 
 | File | Vai trò & Thay đổi chính |
 |---|---|
-| [data/schedule_data.json](data/schedule_data.json) | 14 bản ghi lịch (22/04–08/05/2027), 11 mục `edit_history`, 6 cặp `staff_aliases` và 15 nhóm học viên. |
-| [data/DATA_CARD.md](data/DATA_CARD.md) | Hồ sơ 3 dataset gồm lịch vận hành giả lập, nhóm học viên tự dựng và câu thử mang nhãn `nguoi_dung` hoặc `data_that`. |
-| [codebase/tools.py](codebase/tools.py) | Cài đặt 3 công cụ có `@tool`: `get_schedule`, `check_conflicts` *(code thuần bắt lệch 2 bảng, đổi phòng lần 2, trùng phòng `F307`, trùng coach, vượt sức chứa, lệch tên)* và `draft_notice` *(hậu kiểm mã phòng & gắn nhãn bản nháp)*. |
-| [codebase/agent.py](codebase/agent.py) | Luồng `answer(text)` thực thi Workflow cố định kèm chốt chặn đầu vào `_detect_security_violation` (G1). |
+| [data/schedule_data.json](data/schedule_data.json) | 113 bản ghi lịch, 44 mục `edit_history`, 7 cặp `staff_aliases` và 36 nhóm học viên. |
+| [data/DATA_CARD.md](data/DATA_CARD.md) | Hồ sơ lịch vận hành giả lập, nhóm học viên tự dựng và benchmark. |
+| [codebase/tools.py](codebase/tools.py) | Tra lịch, đối chiếu hai bảng, kiểm tra biến động và hậu kiểm bản nháp trước khi duyệt. |
+| [codebase/agent.py](codebase/agent.py) | Luồng `answer(text)` với bước kiểm tra phạm vi `detect_violations`. |
 | [codebase/ai.py](codebase/ai.py) | Hỗ trợ chạy chế độ `fake` tổng hợp dữ liệu từ công cụ cho CP2 và tích hợp sẵn kết nối thật cho `openai`, `anthropic`, `gemini`, `ollama` cho CP3. |
 | [TEAMS.md](TEAMS.md) & [AGENTS.md](AGENTS.md) | Điền đầy đủ phân công thành viên và quy ước nhóm, kèm nhật ký [docs/ai-usage.md](docs/ai-usage.md). |
 
@@ -93,12 +85,13 @@ flowchart LR
 $ python run.py check
 Kiểm eval/benchmark.csv
   Đủ 6 cột: id,input,expected,pass_criterion,type,source
-  Số câu thử: 20  ·  thuong 11  ·  kho 6  ·  tu_choi 3
-  Nguồn: nguoi_dung 4  ·  data_that 4  ·  tu_viet 7  ·  sinh_seed 5  ·  từ người dùng / data thật: 8/20
+  Số câu thử: 28  ·  thuong 9  ·  kho 14  ·  tu_choi 5
+  Nguồn: nguoi_dung 0  ·  data_that 0  ·  tu_viet 27  ·  sinh_seed 1  ·  từ người dùng / data thật: 0/28
   eval/metric_spec.yaml: 4 metric đã điền đủ (cần ≥3)
 Kiểm TEAMS.md
   4 thành viên
-Không thấy vấn đề. Nhớ: mỗi pass_criterion phải kiểm được (đọc output là biết đạt hay không).
+Cần xem lại:
+  ⚠️ Cần ≥1/3 câu từ lời người dùng hoặc data thật (nguoi_dung / data_that): đang 0/28.
 (Lệnh này chỉ kiểm, không sửa file.)
 ```
 
@@ -106,11 +99,6 @@ Không thấy vấn đề. Nhớ: mỗi pass_criterion phải kiểm được (�
 
 ## 5. Bước tiếp theo chuẩn bị cho CP3 (10:00 Thứ Bảy 28/11)
 
-1. **Commit & Push CP2 trước 19:30 hôm nay:**
-   ```powershell
-   git add -A
-   git commit -m "Hoan thien CP2: kien truc AI, chuan dat spec §7, 20 cau thu benchmark, 4 metric va prototype flow"
-   git push
-   ```
+1. **Chốt bằng chứng ban đầu cho CP2.** Bổ sung số liệu và một câu trích dẫn đã ẩn danh vào canvas, kèm biên bản để đối chiếu.
 2. **Nối Model thật (Tối Thứ Sáu):** Sao chép `.env.example` thành `.env`, điền `MODEL_PROVIDER`, `MODEL_NAME`, `API_KEY` và chạy `python run.py eval --try` → `python run.py eval` để lấy `eval/run-1.csv`.
 3. **Hoàn thiện Bằng chứng Pain (`evidence/`):** Điền biên bản phỏng vấn `evidence/interviews/P1.md`..`P3.md` và tổng hợp ≥ 5 trích dẫn nguyên văn vào `evidence/summary.md`.

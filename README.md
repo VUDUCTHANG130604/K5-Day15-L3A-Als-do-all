@@ -108,8 +108,11 @@ Nhóm dùng stack khác (Node, Streamlit, notebook…): sửa hàm `run_app()` t
 
 | Thành phần | Thật / Giả | Ghi chú |
 |---|---|---|
-| Lời gọi AI ở quyết định trung tâm | **Thật** (bắt buộc từ CP3) | Model: ____ |
-|  |  |  |
+| Lời gọi AI ở quyết định trung tâm | **CP2: giả** (`MODEL_PROVIDER` trống) · **Thật** từ CP3 | Model: ____ |
+| Lịch học, phòng, lịch sử sửa, bảng lab coach | **Giả lập** (data BTC `data/training-ops/`) | Trích bằng `python data/build_schedule.py` (đặt 2 file xlsx vào `data-btc/` trước) → `data/schedule_data.json` |
+| Danh sách nhóm học viên | **Tự dựng** (seed 42) | Bộ đề không có |
+| G1 chặn yêu cầu, `check_conflicts`, G2 hậu kiểm | **Thật** (code) | Không gọi AI |
+| Gửi thông báo | **Không có** | Chỉ tạo bản nháp chờ key coach duyệt |
 
 ## Dùng AI vào việc gì
 

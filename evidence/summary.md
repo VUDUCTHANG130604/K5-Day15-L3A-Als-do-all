@@ -13,7 +13,7 @@
 
 ## 2. Số chính
 
-**Tiến độ CP2:** Bản ghi nhận sơ bộ của nhóm nêu 2 người được hỏi ban đầu đều phải đối chiếu lịch chung và tin nhắn khi có thay đổi phòng sát giờ. Khoảng 20–30 phút/buổi có đổi phòng *(tự ước tính, chờ đối chiếu biên bản)*. Repo hiện có mẫu biên bản phỏng vấn. Cần lưu ghi chép đã ẩn danh và trích một câu nguyên văn vào [canvas](../canvas.md) để truy được về nguồn.
+**Tiến độ CP2:** Nguồn chính dự kiến là phỏng vấn Trợ giảng / Key Coach L3A ngoài nhóm, đối chiếu với thông báo đổi phòng trên kênh lớp. Repo hiện có mẫu biên bản. Số liệu phỏng vấn và trích dẫn trong [canvas](../canvas.md) đang chờ ghi chép đã ẩn danh. Mức 20–30 phút/buổi có đổi phòng là giả thuyết cần đo lại. Số 16/29 buổi lab lệch giữa hai bảng đến từ dữ liệu giả lập của BTC dùng để xây câu thử.
 
 - Đào data: __/__ (__%) …
 - Phỏng vấn: __/3 người gặp *(n nhỏ không ghi %)* · số lần / tháng: P1 __, P2 __, P3 __ · mỗi lần mất __–__ phút
