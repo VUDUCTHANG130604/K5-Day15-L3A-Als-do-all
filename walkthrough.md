@@ -1,7 +1,7 @@
 # Walkthrough — Hoàn thiện Checkpoint 2 (CP2 · Đề tài A5: RoomSync L3A)
 
 > [!IMPORTANT]
-> Toàn bộ yêu cầu của **CP2 (19:30 Thứ Sáu 27/11 · 4 điểm)** đã hoàn tất và vượt qua bài kiểm tra tự động `python run.py check` với **0 cảnh báo**. Chuẩn "đạt" tại [spec.md](spec.md) (§7) và bộ metric tại [eval/metric_spec.yaml](eval/metric_spec.yaml) đã được chốt cứng bằng số.
+> Hồ sơ kỹ thuật CP2 đã qua `python run.py check` với **0 cảnh báo**. Phần bằng chứng trong [canvas](canvas.md) đang chờ một câu trích dẫn nguyên văn từ biên bản phỏng vấn. Chuẩn đạt và bộ metric được ghi tại [spec §7](spec.md) và [metric spec](eval/metric_spec.yaml).
 
 ---
 
@@ -70,7 +70,7 @@ flowchart LR
   * `thuong`: **11 câu** (`B01`–`B11`)
   * `kho`: **6 câu** (`B12`–`B17`, phủ đủ 4 lớp chỗ khó ở [spec.md](spec.md) §5)
   * `tu_choi`: **3 câu** (`B18`–`B20`, gồm 2 câu tấn công Prompt Injection & khai thác PII)
-  * Tỷ lệ câu từ người dùng / dữ liệu thật (`nguoi_dung` + `data_that`): **8/20 câu (40% ≥ 1/3)**.
+  * Tỷ lệ theo nhãn `nguoi_dung` và `data_that`: **8/20 câu (40%)**. Xem [data card](data/DATA_CARD.md) để đối chiếu nguồn từng câu.
 
 ---
 
@@ -78,8 +78,8 @@ flowchart LR
 
 | File | Vai trò & Thay đổi chính |
 |---|---|
-| [data/schedule_data.json](data/schedule_data.json) | Cấu trúc hóa 10 buổi học tiêu biểu (22/04–08/05/2027), 9 bản ghi `edit_history`, 6 cặp chuẩn hóa tên `staff_aliases` và 15 cụm nhóm học viên. |
-| [data/DATA_CARD.md](data/DATA_CARD.md) | Hồ sơ 3 dataset (Lịch vận hành trích rút từ `training-ops`, Danh sách nhóm học viên `synthetic`, và Câu hỏi thực tế từ người dùng). |
+| [data/schedule_data.json](data/schedule_data.json) | 14 bản ghi lịch (22/04–08/05/2027), 11 mục `edit_history`, 6 cặp `staff_aliases` và 15 nhóm học viên. |
+| [data/DATA_CARD.md](data/DATA_CARD.md) | Hồ sơ 3 dataset gồm lịch vận hành giả lập, nhóm học viên tự dựng và câu thử mang nhãn `nguoi_dung` hoặc `data_that`. |
 | [codebase/tools.py](codebase/tools.py) | Cài đặt 3 công cụ có `@tool`: `get_schedule`, `check_conflicts` *(code thuần bắt lệch 2 bảng, đổi phòng lần 2, trùng phòng `F307`, trùng coach, vượt sức chứa, lệch tên)* và `draft_notice` *(hậu kiểm mã phòng & gắn nhãn bản nháp)*. |
 | [codebase/agent.py](codebase/agent.py) | Luồng `answer(text)` thực thi Workflow cố định kèm chốt chặn đầu vào `_detect_security_violation` (G1). |
 | [codebase/ai.py](codebase/ai.py) | Hỗ trợ chạy chế độ `fake` tổng hợp dữ liệu từ công cụ cho CP2 và tích hợp sẵn kết nối thật cho `openai`, `anthropic`, `gemini`, `ollama` cho CP3. |

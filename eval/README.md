@@ -5,13 +5,13 @@
 
 ## 1. Dataset → xử lý
 
-- **Dataset 1 & 2 (`data/schedule_data.json`):** Trích xuất và cấu trúc hóa 10 buổi học đại diện (22/04–08/05/2027), 9 bản ghi lịch sử chỉnh sửa và 6 cặp tên nhân sự gõ lệch từ bộ dữ liệu giả lập `data/training-ops/` của BTC (`teaching-schedule.xlsx` xuất lúc 21:00 27/04/2027 và `lab-coach-schedule.xlsx`), kết hợp danh sách 15 cụm/nhóm học viên `synthetic` (chia 6 nhóm/lớp L3A, L3B để kiểm tra khớp phòng & sức chứa).
-- **Dataset 3 (Câu hỏi thực tế):** 7 tình huống câu hỏi từ phỏng vấn Trợ giảng / Key Coach L3A (`P1`–`P3`) và tin nhắn hỏi đổi phòng thực tế trên kênh lớp (đã ẩn danh và ánh xạ ngày/buổi sang không gian dữ liệu Khoá 9). Chi tiết xem tại `data/DATA_CARD.md`.
+- **Dataset 1 & 2 (`data/schedule_data.json`):** 14 bản ghi lịch (22/04–08/05/2027), 11 mục lịch sử chỉnh sửa và 6 cặp tên nhân sự gõ lệch từ bộ dữ liệu giả lập `data/training-ops/` của BTC, kết hợp 15 nhóm học viên tự dựng để thử đối chiếu phòng và sức chứa.
+- **Dataset 3:** 8 câu thử mang nhãn `nguoi_dung` hoặc `data_that` theo CSV. Danh sách mã câu và tình trạng xác minh nguồn ghi ở mục Dataset 3 trong [data card](../data/DATA_CARD.md).
 
 ## 2. Bộ câu thử dựng ra sao
 
 - `eval/benchmark.csv`: **20** câu (`thuong` **11** · `kho` **6** · `tu_choi` **3**, trong đó **2** câu tấn công Prompt Injection là `B19`, `B20`).
-- Nguồn (`python run.py check` in sẵn): `nguoi_dung` **4** · `data_that` **4** · `tu_viet` **7** · `sinh_seed` **5** → từ người dùng / data thật **8/20 (40%)** (đạt ngưỡng ≥ 1/3).
+- Nguồn (`python run.py check` đếm theo nhãn): `nguoi_dung` **4** · `data_that` **4** · `tu_viet` **7** · `sinh_seed` **5**. Hai nhãn `nguoi_dung` và `data_that` chiếm **8/20 (40%)**. Cần đối chiếu nguồn gốc từng câu để xác nhận ngưỡng ≥ 1/3.
 - Độ phủ — lưới input 4 chiều:
   1. **Trạng thái nguồn phòng:** Đã xác nhận khớp 2 bảng · Bảng chính đã chốt nhưng bảng phụ còn `chờ xác nhận`/`dk` · Bảng phụ có `dk` nhưng bảng chính còn `chờ xác nhận` · Buổi chưa có trên bảng chính · Ngày nghỉ lễ.
   2. **Biến động sát giờ:** Đổi phòng lần 2 sau khi đã báo (`22/04`, `28/04`) · Đổi khung giờ học (`23/04 16:30–20:00`) · Chuyển sang học Online (`25/04`).

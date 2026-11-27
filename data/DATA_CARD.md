@@ -10,8 +10,8 @@
 |---|---|
 | **Dùng để làm gì** | Nguồn dữ liệu nền cho 2 công cụ `get_schedule` và `check_conflicts` trong `codebase/tools.py`; dùng để kiểm thử các ca đối chiếu lịch, bắt lệch giữa 2 bảng và lịch sử đổi phòng sát giờ. |
 | **Từ đâu** | Trích rút và chuẩn hóa cấu trúc từ bộ dữ liệu giả lập BTC cấp (`data/training-ops/teaching-schedule.xlsx` — bản xuất `21:00 27/04/2027` và `data/training-ops/lab-coach-schedule.xlsx`). Không commit nguyên file `.xlsx` gốc của BTC. |
-| **Xử lý những bước gì** | 1. Chọn lọc 10 buổi học đại diện cho đủ 5 kiểu tình huống vận hành (đã xác nhận khớp, lệch trạng thái `dk`/`chờ xác nhận`, đổi phòng sau khi đã báo, đổi giờ/chuyển online, trùng phòng/trùng coach).<br>2. Trích mã ô gốc (`K9-GD1/F18`, `K9-GD1/F27`...), lịch sử chỉnh sửa (`EDIT-...`) và bảng ánh xạ tên gõ lệch (`staff_aliases`: `Labcoach AY`, `Lab Coach  J`, `Lecturer C.`, `GV E`, `Support  D`). |
-| **Số dòng / số đoạn** | 10 bản ghi buổi học (`sessions`), 6 cặp ánh xạ tên nhân sự (`staff_aliases`), 9 bản ghi lịch sử chỉnh sửa (`edit_history`). |
+| **Xử lý những bước gì** | 1. Chọn các bản ghi đại diện cho tình huống vận hành (đã xác nhận, lệch trạng thái `dk`/`chờ xác nhận`, đổi phòng, đổi giờ/chuyển online, trùng phòng/trùng coach, nghỉ lễ, thiếu trên bảng chính).<br>2. Trích mã ô gốc (`K9-GD1/F18`, `K9-GD1/F27`...), lịch sử chỉnh sửa (`EDIT-...`) và bảng ánh xạ tên gõ lệch (`staff_aliases`: `Labcoach AY`, `Lab Coach  J`, `Lecturer C.`, `GV E`, `Support  D`). |
+| **Số dòng / số đoạn** | 14 bản ghi lịch (`sessions`, gồm cả ngày nghỉ và buổi chưa có trên bảng chính), 6 cặp ánh xạ tên nhân sự (`staff_aliases`), 11 mục lịch sử chỉnh sửa (`edit_history`). |
 | **Phiên bản / ngày lấy** | v1.0 · Trích xuất ngày 27/11/2026 từ bản giả lập Khoá 9 (15/04–08/05/2027). |
 | **Nhãn** | `synthetic` (dữ liệu vận hành giả lập từ bộ đề BTC — **không dùng làm bằng chứng pain**). |
 | **Giới hạn** | Chỉ bao phủ các buổi tiêu biểu của đợt 22/04–08/05/2027 của lớp L3A, L3B, L2A, L2B; chưa chứa toàn bộ 111 buổi của cả giai đoạn 1. |
@@ -28,16 +28,16 @@
 | **Nhãn** | `synthetic` |
 | **Giới hạn** | Sĩ số từng nhóm là con số giả định đều nhau (~22–24 HV/nhóm), thực tế tại lớp có thể dao động theo tỷ lệ đi học từng buổi. |
 
-**Data `synthetic` (nhóm tự sinh):** Sinh cố định theo quy tắc chia 6 nhóm/lớp L3 (mỗi phòng lab ghép 2 nhóm ~45–48 học viên để khớp với sức chứa phòng 40–50 chỗ trong sheet `Lịch lab 2604-0805`). Người kiểm: **Bùi Mạnh Linh** và **Nguyễn Mạnh Quyền** đã kiểm tay toàn bộ 15 dòng nhóm và 10 buổi học. Data tự dựng chỉ phục vụ chạy thử tool và benchmark, **không phải bằng chứng pain**.
+**Data `synthetic` (nhóm tự sinh):** Sinh cố định theo quy tắc chia 6 nhóm/lớp L3 (mỗi phòng lab ghép 2 nhóm ~45–48 học viên để khớp với sức chứa phòng 40–50 chỗ trong sheet `Lịch lab 2604-0805`). Ghi nhận kiểm tay của **Bùi Mạnh Linh** và **Nguyễn Mạnh Quyền** bao gồm 15 dòng nhóm và 10 bản ghi buổi học. Data tự dựng phục vụ chạy thử công cụ và benchmark.
 
-## Dataset 3 · Câu hỏi & tình huống thực tế trong `eval/benchmark.csv`
+## Dataset 3 · Câu thử mang nhãn `nguoi_dung` hoặc `data_that` trong `eval/benchmark.csv`
 
 | Thuộc tính | Chi tiết |
 |---|---|
-| **Dùng để làm gì** | Làm đầu vào (`input`) cho các câu thử có nhãn nguồn `nguoi_dung` và `data_that` trong `eval/benchmark.csv` (7/20 câu = 35% ≥ 1/3 theo quy định R4). |
-| **Từ đâu** | Ghi nhận từ lời kể tình huống thực tế khi phỏng vấn Trợ giảng / Key Coach L3A (`P1`, `P2`, `P3`) và mẫu câu hỏi đổi phòng/giờ thực tế trên kênh lớp L3A (đã ẩn danh và ánh xạ mã buổi sang lịch Khoá 9 để chạy qua tool). |
-| **Xử lý những bước gì** | Xoá toàn bộ tên thật, SĐT, email cá nhân; giữ nguyên cấu trúc câu hỏi tự nhiên của học viên/trợ giảng và ánh xạ ngày/mã buổi sang không gian dữ liệu `schedule_data.json`. |
-| **Số dòng / số đoạn** | 7 câu thử thực tế (`B01`, `B02`, `B03`, `B04`, `B12`, `B15`, `B17`) trên tổng số 20 câu thử trong `eval/benchmark.csv`. |
+| **Dùng để làm gì** | Làm đầu vào (`input`) để kiểm thử các tình huống đối chiếu lịch. |
+| **Từ đâu** | Cột `source` ghi lời kể của trợ giảng hoặc tình huống từ kênh lớp và dữ liệu lịch. Cần đối chiếu từng nhãn với biên bản hoặc thông báo gốc đã ẩn danh, nhất là `B16`, hiện ghi nguồn là dữ liệu lịch. |
+| **Xử lý những bước gì** | Ẩn danh thông tin cá nhân và ánh xạ ngày/mã buổi sang `schedule_data.json` để chạy thử. |
+| **Số dòng / số đoạn** | 8/20 câu (40%) theo nhãn trong CSV. `nguoi_dung` gồm `B01`, `B02`, `B04`, `B12`. `data_that` gồm `B03`, `B05`, `B14`, `B16`. |
 | **Phiên bản / ngày lấy** | v1.0 · Ngày 27/11/2026. |
-| **Nhãn** | **thật** (cấu trúc câu hỏi & tình huống vận hành từ người dùng thật, đã ẩn danh). |
+| **Nhãn** | `nguoi_dung` (4) và `data_that` (4) theo CSV. Nguồn gốc của từng câu đang chờ đối chiếu. |
 | **Giới hạn** | Mã ngày/phòng cụ thể trong câu hỏi được ánh xạ sang lịch Khoá 9 (`22/04`–`08/05/2027`) để khớp với kho dữ liệu giả lập của bản chạy thử. |
