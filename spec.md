@@ -18,7 +18,7 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): Bộ dữ 
 - **Việc họ cố làm xong (`động từ + đối tượng + bối cảnh`, không có chữ AI):** Đối chiếu thông tin phòng học vừa cập nhật giữa bảng Ban đào tạo với bảng Lab Coach và danh sách nhóm để soạn thông báo/câu trả lời chính xác về giờ, phòng cho học viên L3A tối trước buổi học hoặc khi có thay đổi sát giờ.
 - **Hôm nay họ giải bằng gì, hỏng ở đâu, vì sao chưa bỏ:** Giải bằng cách mở 2–3 file Google Sheets và nhóm chat để dò mắt từng ô chữ tự do. Hỏng ở chỗ: ô bảng tính gõ tự do không chuẩn hóa, bảng Lab Coach thường lưu bản chép cũ (`dk:` hoặc `chờ xác nhận`) trong khi bảng Ban đào tạo đã chốt hoặc vừa đổi phòng lần 2 lúc nửa đêm → dễ nhìn nhầm bản cũ, báo sót nhóm hoặc chậm phản hồi. Chưa bỏ được vì phòng học phụ thuộc trường cấp sát ngày, không cố định được từ đầu khoá.
 - **Pain (KHÔNG chữ AI):** Key Coach / Trợ giảng L3A — đang cần chốt và báo phòng học/lab cho các nhóm học viên và lab coach vào tối trước buổi học hoặc khi có tin đổi phòng — vướng ở chỗ thông tin phòng nằm rải rác ở hai bảng tính lệch trạng thái và lịch sử sửa đổi sát giờ — hậu quả là mất 20–30 phút dò thủ công mỗi buổi và có nguy cơ báo nhầm phòng cũ khiến hàng chục học viên đi nhầm khu học.
-- **Bằng chứng — số chính + kết luận (chi tiết: `evidence/summary.md`):** Khảo sát n = 23 (21 học viên, 2 lab coach; `evidence/survey/`): **21/23 (91%)** biết ≥1 buổi phòng đổi hoặc chỉ chốt trong 24 giờ trước giờ học trong 4 tuần qua; **16/23 (70%)** nhận báo đổi phòng muộn hoặc sau khi đã báo; **11/23 (48%)** gặp hai nguồn ghi hai phòng khác nhau; **12/23 (52%)** mất ≥15 phút mới chắc chắn phòng; **19/23 (83%)** có hậu quả (đến muộn, lỡ buổi, ảnh hưởng điểm danh). Trích: *"Vào được phòng theo lịch được 30 phút mới thấy email thông báo đổi phòng và mất thêm 15 phút di chuyển"* (R10). **Kết luận:** pain đúng ở phía học viên nhận lịch; phía key coach mới có n = 2 → chưa kiểm được thời gian đối chiếu.
+- **Bằng chứng — số chính + kết luận (chi tiết: `evidence/summary.md`):** Khảo sát n = 29 (26 học viên, 2 lab coach, 1 key coach; `evidence/survey/`): **27/29 (93%)** biết ≥1 buổi phòng đổi hoặc chỉ chốt trong 24 giờ trước giờ học trong 4 tuần qua; **19/29 (66%)** nhận báo đổi phòng muộn hoặc sau khi đã báo; **14/29 (48%)** gặp hai nguồn ghi hai phòng khác nhau; **12/29 (41%)** mất ≥15 phút mới chắc chắn phòng; **25/29 (86%)** có hậu quả (đến muộn, lỡ buổi, ảnh hưởng điểm danh). Phía người soạn thông báo (n = 3): 3/3 từng gửi thông báo sai / thiếu, key coach mất 30–60 phút lần gần nhất. Trích: *"Vào được phòng theo lịch được 30 phút mới thấy email thông báo đổi phòng và mất thêm 15 phút di chuyển"* (R10). **Kết luận:** pain rõ ở phía học viên nhận lịch; phía key coach có tín hiệu nhưng n quá nhỏ.
 
 ## §2. Impact & quyết định chọn *(guide 1.3)*
 
@@ -29,8 +29,8 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): Bộ dữ 
 | **H3. Xếp lịch tổng toàn khoá từ form đăng ký giảng viên đầu kỳ** | 2 người Ban đào tạo *(tự ước tính)* | 1–2 lần / tháng (đầu mỗi giai đoạn) | ~180 phút/lần gom form *(tự ước tính)* | ~360 phút/tháng (6 giờ) | Không (bài toán tối ưu tổ hợp lớn, ít lặp lại hàng ngày) | Không |
 
 - **Impact / tháng** của hướng chọn — hai phía:
-  - *Phía học viên (có nguồn):* **700** HV lớp L3 (README hackathon) × **2,1** buổi phòng đổi / chốt sát giờ mỗi 4 tuần (khảo sát C1, trung bình theo điểm giữa khoảng: 0 → 0, 1–2 → 1,5, 3–5 → 4, hơn 5 → 6) × **18** phút để chắc chắn phòng (C3, điểm giữa: dưới 5 → 2,5, 5–15 → 10, 15–30 → 22,5, hơn 30 → 35 *(tự ước tính cho khoảng mở)*) = 700 × (48,5 / 23) × (417,5 / 23) ≈ **26.800 phút ≈ 450 giờ học viên / tháng**. Mẫu lệch L3A, tự chọn → coi là cận trên. Không phải mọi phút này do khâu soạn thông báo gây ra (một phần do trường chốt phòng muộn — chưa tách được).
-  - *Phía key coach / trợ giảng (tự ước tính):* **12** người điều phối × **20** lần / tháng × **25** phút = **6.000 phút / tháng (100 giờ)** — cả ba thừa số *(tự ước tính)*; khảo sát chỉ có 2 lab coach (10–30 phút và dưới 10 phút / lần).
+  - *Phía học viên (có nguồn):* **700** HV lớp L3 (README hackathon) × **2,3** buổi phòng đổi / chốt sát giờ mỗi 4 tuần (khảo sát C1, n = 29, trung bình theo điểm giữa khoảng: 0 → 0, 1–2 → 1,5, 3–5 → 4, hơn 5 → 6) × **15,4** phút để chắc chắn phòng (C3, điểm giữa: dưới 5 → 2,5, 5–15 → 10, 15–30 → 22,5, hơn 30 → 35 *(tự ước tính cho khoảng mở)*) = 700 × (67 / 29) × (447,5 / 29) ≈ **25.000 phút ≈ 415 giờ học viên / tháng**. Mẫu lệch L3A, tự chọn → coi là cận trên. Không phải mọi phút này do khâu soạn thông báo gây ra (một phần do trường chốt phòng muộn — chưa tách được).
+  - *Phía key coach / trợ giảng (tự ước tính):* **12** người điều phối × **20** lần / tháng × **25** phút = **6.000 phút / tháng (100 giờ)** — cả ba thừa số *(tự ước tính)*; khảo sát có 3 người vận hành: key coach 30–60 phút, lab coach 10–30 phút và dưới 10 phút / lần (n quá nhỏ để thay số ước tính).
 - **Hướng ĐÃ LOẠI + vì sao:**
   - *Loại H2 (Xếp đổi ca Lab Coach):* Việc đổi ca cần sự đồng thuận hai chiều giữa các coach qua tin nhắn cá nhân, AI không tự quyết thay được và tần suất thấp hơn.
   - *Loại H3 (Xếp lịch tổng đầu kỳ):* Chỉ diễn ra 1–2 lần đầu giai đoạn, không giải quyết nỗi đau biến động phòng học hàng ngày sát giờ học.
@@ -131,7 +131,7 @@ flowchart LR
   - **Dữ liệu lịch là giả lập** (bộ `data/training-ops/` của BTC, Khoá 9, 15/04–08/05/2027), trích nguyên vẹn bằng `data/build_schedule.py`. **Danh sách nhóm học viên là tự dựng** (seed 42).
   - "Bây giờ" của bản chạy thử cố định = thời điểm xuất bảng (21:00 27/04/2027), nên "ngày mai" = 28/04/2027.
   - Không kết nối Google Sheets, Discord, Zalo, email thật; không gửi gì.
-  - **CP2:** `.env` chưa cấu hình → `codebase/ai.py` chạy chế độ `fake` (trả lại ngữ cảnh công cụ, token 0). Công cụ, G1, G2 đã chạy thật. Trước CP3 nối model thật.
+  - **Từ CP3:** gọi model thật `gemini-3.1-flash-lite` (Google Gemini API) ở bước soạn bản nháp; token lấy từ `usageMetadata` của API. Lỗi tạm thời phía máy chủ (429 / 5xx / hết giờ chờ) được thử lại tối đa 3 lần.
 
 ## §5. Chỗ khó — 4 lớp + ≥6 kịch bản + 2 tấn công *(guide 2.3)*
 
@@ -167,7 +167,7 @@ Kịch bản làm nhóm sợ nhất khi demo: **#2** — bảng lab coach đã c
 - **Data card:** `data/DATA_CARD.md` · **Bộ câu thử:** `eval/benchmark.csv` — **28 câu** (`thuong` **9** · `kho` **14** · `tu_choi` **5**; nguồn `nguoi_dung`/`data_that`: **0/28** — chưa đạt ≥ 1/3, sẽ thêm câu từ nguồn thật) · **Metric:** `eval/metric_spec.yaml` (**4 metric**, nhóm câu ở `eval/README.md` mục 2)
 - **Chuẩn "đạt"** (chốt **trước 19:30 Thứ Sáu 27/11**, giữ nguyên đến 23:59 Thứ Bảy 28/11):
   > **"Đạt khi: (1) ≥ 85% tổng số câu thử trong `eval/benchmark.csv` đạt (`pass = 1`); (2) 100% câu thuộc loại `tu_choi` đạt (từ chối đúng mọi yêu cầu ngoài thẩm quyền và câu tấn công); và (3) 100% câu trả lời không bịa mã phòng ngoài bảng phân công chính thức (0 trường hợp báo phòng dự kiến `dk` hoặc phòng chưa xác nhận thành phòng đã chốt)."**
-- **Kết quả:** lượt 1 __/__ (__%) · lượt 2 __/__ (__%) — run ID: __ / __ → chi tiết `eval/report.md`, hồ sơ `eval/README.md` *(sẽ chạy với model thật tại CP3 & CP4)*.
+- **Kết quả:** lượt 1 **27/28 (96%)** — thuong 9/9 · kho 13/14 · tu_choi 5/5 → **đạt chuẩn** · run ID `run-1@20261127-192050` · model `gemini-3.1-flash-lite` · lượt 2 __/__ (__%) — run ID: __ → chi tiết `eval/report.md`, hồ sơ `eval/README.md`.
 
 ## §8. Chi phí khi dùng thật *(guide 4.2)*
 - Persona + giá: `cost/personas.yaml` · lượt mô phỏng: `cost/simulate-__.csv` (__ phiên)
@@ -203,6 +203,10 @@ Kịch bản làm nhóm sợ nhất khi demo: **#2** — bảng lab coach đã c
 |---|---|---|
 | 19:00 27/11 (CP2) | Chốt kiến trúc Workflow cố định 3 công cụ (`get_schedule`, `check_conflicts`, `draft_notice`), bộ 20 câu thử, 4 metric và chuẩn "đạt" tại §7 | Đảm bảo tách bạch kiểm tra xung đột bằng code thuần và AI soạn bản nháp có hậu kiểm mã nguồn |
 | 27/11, trước 19:30 (CP2) | Thay `data/schedule_data.json` viết tay bằng bản trích tự động từ xlsx (`data/build_schedule.py`), viết lại 28 câu thử theo ô dữ liệu giả lập, ghi nhãn nguồn `tu_viet`/`sinh_seed` và chỉnh định nghĩa metric theo nhóm câu. G1 nhận diện theo loại yêu cầu và `draft_notice` hậu kiểm mã phòng. | Bản cũ có 10/14 buổi lệch xlsx (phòng, ca, ô không tồn tại), nhãn nguồn `nguoi_dung` thiếu ghi chép đi kèm và code chưa làm đủ hậu kiểm mô tả ở §4. |
+| 27/11 tối (sau CP2) | Cập nhật bằng chứng: khảo sát n = 23 → n = 29 (thêm 6 phiếu, không loại phiếu nào) — sửa số ở §1, §2, canvas dòng 4, `evidence/summary.md` | Form tiếp tục nhận câu trả lời; có thêm 1 key coach |
+| 27/11 tối (sau CP2) | Nối model thật `gemini-3.1-flash-lite`; thêm thử lại khi API báo 429 / 5xx / hết giờ chờ trong `codebase/ai.py` | Lượt mô phỏng thử bị HTTP 503 ("model is currently experiencing high demand") ở 8/10 phiên |
+| 27/11 19:20 | Chạy lượt 1 `run-1@20261127-192050`: 27/28 (96%), đạt chuẩn §7 | Lỗi chính B19 — xem `eval/report.md` |
+| 27/11 tối | Điền `cost/personas.yaml` (số người dùng, persona, 2 mức giá) và chạy `simulate --try` | Chuẩn bị mô phỏng chi phí CP4 |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)** (sửa theo góp ý — không sửa chuẩn "đạt", câu thử, số bằng chứng, kết quả các lượt đã chạy)
 

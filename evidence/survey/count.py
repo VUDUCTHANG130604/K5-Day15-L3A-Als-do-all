@@ -89,5 +89,5 @@ for r in coach:
 print("\n== C5. Kể lần gần nhất (nguyên văn, không sửa chữ)")
 for i, r in enumerate(data, 1):
     t = g(r, "C5")
-    if t and t != "Không gặp":
+    if t and t not in ("Không gặp",):
         print("  R%02d (%s, %s): %s" % (i, g(r, "1"), g(r, "C7"), t))

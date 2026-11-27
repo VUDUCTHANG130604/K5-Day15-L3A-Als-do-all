@@ -9,6 +9,7 @@ Hợp đồng (giữ nguyên để khung đo được token):
 """
 import json
 import os
+import time
 import urllib.error
 import urllib.request
 
@@ -41,16 +42,30 @@ URL_CLAUDE = "https://api.anthropic.com/v1/messages"
 URL_OLLAMA = "http://localhost:11434/api/chat"
 
 
+RETRY_CODES = (429, 500, 502, 503, 504)
+MAX_RETRIES = 3
+
+
 def post_json(url, headers, body, timeout=60):
-    """Gửi POST JSON, trả về JSON phản hồi. Chỉ dùng thư viện chuẩn (urllib)."""
-    req = urllib.request.Request(
-        url, data=json.dumps(body).encode("utf-8"), method="POST",
-        headers=dict({"Content-Type": "application/json"}, **headers))
-    try:
-        with urllib.request.urlopen(req, timeout=timeout) as r:
-            data = json.loads(r.read().decode("utf-8"))
-    except urllib.error.HTTPError as e:
-        raise RuntimeError("HTTP %d: %s" % (e.code, e.read().decode("utf-8", "replace")[:300]))
+    """Gửi POST JSON, trả về JSON phản hồi. Chỉ dùng thư viện chuẩn (urllib).
+    Lỗi tạm thời phía máy chủ (429 / 5xx / hết giờ chờ): thử lại tối đa MAX_RETRIES lần, chờ 5s, 10s, 20s.
+    Token vẫn lấy từ usage của lần gọi thành công — lần lỗi không có phản hồi nên không có token."""
+    req_data = json.dumps(body).encode("utf-8")
+    hdrs = dict({"Content-Type": "application/json"}, **headers)
+    for attempt in range(MAX_RETRIES + 1):
+        req = urllib.request.Request(url, data=req_data, method="POST", headers=hdrs)
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                data = json.loads(r.read().decode("utf-8"))
+            break
+        except urllib.error.HTTPError as e:
+            msg = "HTTP %d: %s" % (e.code, e.read().decode("utf-8", "replace")[:300])
+            if e.code not in RETRY_CODES or attempt == MAX_RETRIES:
+                raise RuntimeError(msg)
+        except (TimeoutError, urllib.error.URLError) as e:
+            if attempt == MAX_RETRIES:
+                raise
+        time.sleep(5 * (2 ** attempt))
     if SHOW_RAW:
         print(json.dumps(data, ensure_ascii=False, indent=2)[:3000])
     return data

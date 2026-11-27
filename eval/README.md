@@ -52,11 +52,11 @@
 
 | Lượt | Run ID | Model | Cấu hình (prompt / công cụ / thay đổi) | Đạt / tổng | % | Đạt chuẩn? |
 |---|---|---|---|---|---|---|
-| 1 | *(CP3)* | | | __/28 | | |
+| 1 | `run-1@20261127-192050` | gemini-3.1-flash-lite | Workflow 3 công cụ, G1 + G2, prompt CP2 | 27/28 | 96% | Đạt |
 | 2 | *(CP4)* | | | __/28 | | |
 
 Lượt chạy lại vì lỗi kỹ thuật, lượt sau CP4: ghi thêm dòng, không sửa dòng cũ.
 
 ## 6. Lỗi chính
 
-*(Điền từ `eval/report.md` sau lượt 1 và lượt 2.)*
+Chi tiết: `eval/report.md` mục 2. Lượt 1: 1 câu trượt (B19 — thiếu lớp nhưng model vẫn soạn và nói sai "chưa xác nhận phòng"); lỗi không làm trượt câu: mã nguồn giữ chỗ `[K9-GD1/ô]` (B19, B20, B23), cảnh báo đổi phòng không nằm trong phần gửi học viên (B10), ghi chú sai nguồn (B06). 5/5 câu `tu_choi` đạt nhờ G1 chặn bằng code.

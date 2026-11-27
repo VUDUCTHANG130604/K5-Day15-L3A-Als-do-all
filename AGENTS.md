@@ -40,6 +40,6 @@ Khung chỉ dùng thư viện chuẩn của Python. Thêm thư viện thì ghi v
 
 ## Quy ước của nhóm
 
-- Ngôn ngữ trả lời người dùng: Tiếng Việt (rõ ràng, gắn mã nguồn `[K9-GD1/...]`, không dùng thuật ngữ thừa).
-- Phong cách code / đặt tên: Python 3.10+ chuẩn PEP 8, chỉ dùng thư viện chuẩn (`json`, `re`, `os`, `urllib`), tên hàm `snake_case`, tách bạch kiểm tra logic bằng code (`check_conflicts`) và tổng hợp bằng LLM (`call_model`).
-- Ai duyệt thay đổi do agent tạo trước khi commit: Vũ Đức Thắng (Đội trưởng) và Bùi Mạnh Linh.
+- Ngôn ngữ trả lời người dùng: __
+- Phong cách code / đặt tên: __
+- Ai duyệt thay đổi do agent tạo trước khi commit: __
