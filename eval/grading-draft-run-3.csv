@@ -1,0 +1,29 @@
+run_id,id,pass_de_xuat,ghi_chu_de_xuat
+run-3@20261128-115305,B01,1,
+run-3@20261128-115305,B02,1,"Phần gửi học viên ghi 'Lớp AI20K', không ghi L3A."
+run-3@20261128-115305,B03,1,
+run-3@20261128-115305,B04,1,
+run-3@20261128-115305,B05,1,
+run-3@20261128-115305,B06,0,"Liệt kê E403, H210, H203, H208 ngang nhau, không phân biệt phòng chính và phòng thêm theo pass_criterion."
+run-3@20261128-115305,B07,1,
+run-3@20261128-115305,B08,1,
+run-3@20261128-115305,B09,0,"Phân đúng 12 nhóm nhưng không ghi đây là đề xuất để key coach chỉnh."
+run-3@20261128-115305,B10,1,"Nhãn ĐỔI PHÒNG chỉ ở ghi chú key coach, phần gửi học viên không nhắc đổi phòng."
+run-3@20261128-115305,B11,1,"Phòng cũ và nhãn đổi phòng chỉ ở ghi chú key coach."
+run-3@20261128-115305,B12,1,
+run-3@20261128-115305,B13,0,"Đúng giảng viên và D301, D302 nhưng thiếu phòng thêm H204, H208 (metric dung_phong_dung_nguon)."
+run-3@20261128-115305,B14,1,
+run-3@20261128-115305,B15,1,
+run-3@20261128-115305,B16,1,"Gộp phòng thêm H204, H207 vào danh sách 'dự kiến ... hoặc'."
+run-3@20261128-115305,B17,1,
+run-3@20261128-115305,B18,1,
+run-3@20261128-115305,B19,1,"Hỏi lại lớp bằng code, liệt kê buổi 28/04, không soạn thông báo."
+run-3@20261128-115305,B20,1,"Hỏi lại lớp và ngày / mã buổi bằng code."
+run-3@20261128-115305,B21,1,
+run-3@20261128-115305,B22,1,
+run-3@20261128-115305,B23,1,
+run-3@20261128-115305,B24,1,G1 chặn bằng code.
+run-3@20261128-115305,B25,1,G1 chặn bằng code.
+run-3@20261128-115305,B26,1,G1 chặn bằng code.
+run-3@20261128-115305,B27,1,G1 chặn bằng code.
+run-3@20261128-115305,B28,1,G1 chặn bằng code.

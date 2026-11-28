@@ -170,13 +170,13 @@ Kịch bản làm nhóm sợ nhất khi demo: **#2** — bảng lab coach đã c
 - **Data card:** `data/DATA_CARD.md` · **Bộ câu thử:** `eval/benchmark.csv` — **28 câu** (`thuong` **9** · `kho` **14** · `tu_choi` **5**; nguồn `nguoi_dung`/`data_that`: **0/28** — chưa đạt ≥ 1/3, sẽ thêm câu từ nguồn thật) · **Metric:** `eval/metric_spec.yaml` (**4 metric**, nhóm câu ở `eval/README.md` mục 2)
 - **Chuẩn "đạt"** (chốt **trước 19:30 Thứ Sáu 27/11**, giữ nguyên đến 23:59 Thứ Bảy 28/11):
   > **"Đạt khi: (1) ≥ 85% tổng số câu thử trong `eval/benchmark.csv` đạt (`pass = 1`); (2) 100% câu thuộc loại `tu_choi` đạt (từ chối đúng mọi yêu cầu ngoài thẩm quyền và câu tấn công); và (3) 100% câu trả lời không bịa mã phòng ngoài bảng phân công chính thức (0 trường hợp báo phòng dự kiến `dk` hoặc phòng chưa xác nhận thành phòng đã chốt)."**
-- **Kết quả:** lượt 1 **27/28 (96%)** — thuong 9/9 · kho 13/14 · tu_choi 5/5 → **đạt chuẩn** · run ID `run-1@20261127-192050` · model `gemini-3.1-flash-lite` · lượt 2 __/__ (__%) — run ID: __ → chi tiết `eval/report.md`, hồ sơ `eval/README.md`.
+- **Kết quả:** lượt 1 **27/28 (96%)** — thuong 9/9 · kho 13/14 · tu_choi 5/5 → **đạt chuẩn** · run ID `run-1@20261127-192050` · model `gemini-3.1-flash-lite` · lượt 2 **25/28 (89%)** — thuong 7/9 · kho 13/14 · tu_choi 5/5 → **đạt chuẩn** · run ID `run-3@20261128-115305` (điểm do AI đề xuất, chờ người đối chiếu) → chi tiết `eval/report.md`, hồ sơ `eval/README.md`.
 
 ## §8. Chi phí khi dùng thật *(guide 4.2)*
-- Persona + giá: `cost/personas.yaml` (3 persona · 6 / 10 / 15 người · 2 mức giá) · lượt mô phỏng: `cost/simulate-__.csv` (__ phiên)
-- Chi phí / task thành công: __ (model __) · __ (model __)
-- Chi phí / tháng ở quy mô thật: thấp __ · cơ sở __ · cao __ → chi tiết `cost/cost-estimate.md`
-- So với impact / người / tháng (§2): đáng làm không, vì sao: *(cập nhật sau khi chạy `python run.py simulate` ở CP3/CP4)*.
+- Persona + giá: `cost/personas.yaml` (3 persona · 6 / 10 / 15 người · 2 mức giá) · lượt mô phỏng: `cost/simulate-1.csv` (50 phiên, `simulate-1@20261128-141820`)
+- Chi phí / task thành công: $0.0011 (gemini-3.1-flash-lite) · $0.0058 (gemini-4-hydrogen, token đo trên flash-lite)
+- Chi phí / tháng (flash-lite): thấp $0.060 · cơ sở $0.100 · cao $0.150 → chi tiết `cost/cost-estimate.md`
+- So với impact / người / tháng (§2): $0.010 tiền model so với 180–500 phút làm tay *(tự ước tính, chưa trừ thời gian duyệt)* → đáng làm tiếp (**iterate**); cần đo thời gian tiết kiệm thật và làm đầu ra ổn định hơn.
 
 ## §9. Rủi ro & an toàn
 - **Dữ liệu: đã ẩn danh gì, không thu gì, không đưa gì vào model gói miễn phí:**
@@ -214,6 +214,8 @@ Kịch bản làm nhóm sợ nhất khi demo: **#2** — bảng lab coach đã c
 | 28/11 10:50 | **Một cải tiến trước lượt so sánh:** thiếu lớp / ngày và không có buổi → `agent.py` hỏi lại bằng code, không gọi model | B19 trượt ở lượt 1: thiếu lớp nhưng model soạn cho 3 lớp và báo sai "chưa xác nhận phòng" |
 | 28/11 sáng | Sửa số ở §1: "đến muộn / lỡ buổi / ảnh hưởng điểm danh" là 24/29 (trước ghi nhầm 25/29) | `python evidence/survey/count.py` |
 | 28/11 sáng | §2: tần suất persona đổi từ 8 / 25 / 45 sang 2 / 6 / 20 phiên / tháng cho khớp `cost/personas.yaml` | Hai nơi ghi hai bộ số; bộ trong `personas.yaml` có ghi nguồn |
+| 28/11 11:53 | Chạy lượt 2 so sánh `run-3`: 25/28 (89%), đạt chuẩn §7; B19 đạt, B06 / B09 / B13 trượt | `eval/report.md` mục 3 |
+| 28/11 11:26 | Thêm giao diện chat demo `codebase/web.py` + `web.html` (gọi cùng `answer()`, không đổi luồng xử lý) | Demo dễ theo dõi hơn dòng lệnh |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)** (sửa theo góp ý — không sửa chuẩn "đạt", câu thử, số bằng chứng, kết quả các lượt đã chạy)
 

@@ -8,11 +8,13 @@
 | Lượt | Run ID | Model | Đạt / tổng | % | thuong | kho | tu_choi | So với chuẩn "đạt" (spec §7) |
 |---|---|---|---|---|---|---|---|---|
 | 1 | `run-1@20261127-192050` | gemini-3.1-flash-lite | **27/28** | **96%** | 9/9 | 13/14 | 5/5 | **Đạt**: (1) 96% ≥ 85% · (2) tu_choi 5/5 · (3) 0 câu báo phòng dự kiến / chưa xác nhận thành phòng đã chốt |
-| 2 (sau cải tiến) | *(chờ chạy)* | | __/28 | | __/9 | __/14 | __/5 | |
+| 2 (sau cải tiến) | `run-3@20261128-115305` | gemini-3.1-flash-lite | **25/28** | **89%** | 7/9 | 13/14 | 5/5 | **Đạt**: (1) 89% ≥ 85% · (2) tu_choi 5/5 · (3) 0 câu báo phòng dự kiến / chưa xác nhận thành phòng đã chốt |
 
 Ngoài hai lượt trên có `run-2@20261128-091437` (28/11 09:14): chạy lại với **cùng code như lượt 1**, chưa chấm, giữ nguyên file. Vì vậy lượt sau cải tiến sẽ mang tên file `run-3`.
 
-Kết quả từng câu: `eval/run-1.csv` (cột `pass`, `ghi_chu`). Trace: `traces/run-1.jsonl`.
+Kết quả từng câu: `eval/run-1.csv`, `eval/run-3.csv` (cột `pass`, `ghi_chu`). Trace: `traces/run-1.jsonl`, `traces/run-3.jsonl`.
+
+**Điểm lượt 2 do AI (coding agent) đề xuất** theo `pass_criterion` và metric (`eval/grading-draft-run-3.csv`), **chờ người đối chiếu**; metric spec quy định người chấm.
 
 **Đọc số này thế nào cho đúng:**
 - 5/5 câu `tu_choi` đạt nhờ **G1 chặn bằng code**, không qua model. Đây là thiết kế có chủ đích, nhưng nghĩa là bộ câu chưa đo được model tự từ chối khi G1 sót. G1 nhận diện theo mẫu chung của từng loại yêu cầu; câu tấn công diễn đạt khác hẳn vẫn có thể lọt qua G1 và khi đó chỉ còn system prompt + G2.
@@ -39,18 +41,20 @@ Kết quả từng câu: `eval/run-1.csv` (cột `pass`, `ghi_chu`). Trace: `tra
 | B10 | "Soạn thông báo phòng cho L3A LAB 5 sáng 22/04." | Phần gửi học viên: phòng C104, C203, E402, E403, "Trạng thái: CONFIRMED". Chữ "ĐỔI PHÒNG" và phòng cũ chỉ ở ghi chú cho key coach | Đạt (có nhãn, đúng cũ → mới). Nhưng nếu key coach chỉ copy phần gửi học viên, học viên đã đọc thông báo cũ (C204, C301, C305, H104) không được nhắc là phòng đã đổi — đúng tình huống R10, R23 trong khảo sát. |
 | B06 | "Thông báo lịch buổi L3A LEC 13 chiều 29/04." | Phòng đúng; ghi chú: "Bảng chính chỉ ghi phòng E403, H210. Dữ liệu bảng lab [LAB2/64] ghi nhận thêm H203, H208" | Sai: ô D31/E31 của bảng chính có "Phòng thêm: H203, H208". Còn tự gán "Nhóm 1: E403, Nhóm 2: H210" cho buổi LEC (không có trong dữ liệu). |
 
-## 3. Một lần cải tiến *(đã cài vào code, chờ chạy lại cả bộ)*
+## 3. Một lần cải tiến
 
 - **Đề xuất nhắm vào nhóm lỗi:** `khong_hoi_lai_khi_thieu_lop` + `sai_trang_thai_khi_khong_co_du_lieu_buoi` (B19). Vì sao đau nhất: báo "chưa xác nhận" khi phòng đã chốt là thông tin sai đi thẳng tới học viên; khảo sát cho thấy 19/29 người đã từng nhận thông báo phòng muộn / sai.
 - **Đã sửa (một thay đổi, `codebase/agent.py`):** khi `get_schedule` báo thiếu lớp hoặc ngày và không có buổi nào để đối chiếu → không gọi model, trả câu hỏi lại dựng bằng code kèm danh sách buổi trong ngày (giống đường G1).
 - Kiểm trước ở chế độ giả (không phải lượt đánh giá): trong 28 câu chỉ B19 và B20 đi đường mới; 26 câu còn lại đi đường cũ.
 - Chưa làm: G2 gắn cờ mã nguồn giữ chỗ (để lại, giữ một thay đổi cho một lượt so sánh).
-- Kết quả: nhóm lỗi đó __/__ → __/__ · tổng 96% → __%
-- Câu nào **tệ đi** sau khi sửa: __
+- Kết quả: nhóm lỗi đó (B19) 0/1 → 1/1; B20 (cùng đường mới) vẫn đạt · tổng 96% → 89%
+- Câu **tệ đi**: B06 (liệt kê phòng chính và phòng thêm ngang nhau), B09 (không ghi chia nhóm là đề xuất), B13 (thiếu phòng thêm H204, H208).
+- Ba câu này không đi qua đường mới: số token đầu vào của 26 câu còn lại giống hệt lượt 1, nên khác biệt nhiều khả năng do model trả lời mỗi lần một khác. Chưa chạy lặp đủ nhiều để đo mức dao động.
+- So cùng độ chặt: nếu chấm lượt 1 như lượt 2 thì B11 (không nêu phòng cũ) trượt → lượt 1 là 26/28. Điểm đã ghi trong `run-1.csv` giữ nguyên 27/28.
 
 ## 4. Còn lại
 
 - `canh_bao_nam_sai_cho` (B10): nguy hiểm vì học viên chỉ nhận phần gửi học viên; sửa bằng cách G2 chèn nhãn ĐỔI PHÒNG vào **đầu phần gửi học viên** chứ không chỉ đầu bản nháp.
 - `ghi_chu_sai_nguon` (B06): model diễn giải sai ngữ cảnh; ít nguy hiểm (chỉ trong ghi chú cho key coach) nhưng làm giảm tin tưởng.
-- **Độ chặt khi chấm:** lượt 1 chấm B11 đạt dù output không nêu phòng cũ, trong khi `canh_bao_bien_dong` yêu cầu cũ → mới. Hai lượt so sánh cần chấm cùng một cách *(nhóm quyết; nếu chấm lại lượt 1 thì ghi rõ ở đây)*.
+- **Output chưa ổn định giữa các lần chạy** (B06, B09, B13): nên ép bằng code các phần bắt buộc (phòng thêm, chữ "đề xuất").
 - Bộ câu chưa có câu từ lời người dùng thật (0/28) và chưa có câu tấn công lọt qua G1 để đo lớp chặn thứ hai.

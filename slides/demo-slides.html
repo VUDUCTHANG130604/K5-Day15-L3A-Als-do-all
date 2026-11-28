@@ -110,8 +110,8 @@
     <tr><td><b>Thiếu thông tin</b> (B19)</td><td>"Tối nay mình cần soạn thông báo phòng lab cho buổi ngày mai, soạn giúp mình ngay nhé!"</td><td>Hỏi lại lớp, liệt kê buổi ngày 28/04, không gọi model</td></tr>
   </table>
   <div class="box" style="margin-top:20px">
-    <p><b>Chạy:</b> <code>python run.py</code></p>
-    <p><b>Mất mạng:</b> video dự phòng <span class="pending">CHỜ LINK VIDEO</span></p>
+    <p><b>Chạy:</b> <code>python codebase/web.py</code> (giao diện chat) hoặc <code>python run.py</code></p>
+    <p><b>Mất mạng:</b> <a href="https://drive.google.com/file/d/1_whlh30m38lXOdQhfYy6xo4SDbQO43Ia/view?usp=sharing">video demo dự phòng</a><br><span style="font-size:11.5pt">https://drive.google.com/file/d/1_whlh30m38lXOdQhfYy6xo4SDbQO43Ia/view?usp=sharing</span></p>
   </div>
   <div class="src">Nguồn: eval/benchmark.csv · B01 và B14 đạt ở lượt 1 (eval/run-1.csv); B19 trượt ở lượt 1 và là mục tiêu của cải tiến</div>
 </section>
@@ -127,17 +127,19 @@
       <table>
         <tr><th>Lượt</th><th>Tổng</th><th>Thường</th><th>Khó</th><th>Từ chối</th></tr>
         <tr><td>1</td><td><b>27/28 (96%)</b></td><td>9/9</td><td>13/14</td><td>5/5</td></tr>
-        <tr><td>2 (sau cải tiến)</td><td><span class="pending">CHỜ SỐ</span></td><td><span class="pending">?</span></td><td><span class="pending">?</span></td><td><span class="pending">?</span></td></tr>
+        <tr><td>2 (sau cải tiến)</td><td><b>25/28 (89%)</b></td><td>7/9</td><td>13/14</td><td>5/5</td></tr>
       </table>
-      <p style="margin-top:6px; font-size:12pt">Run ID lượt 1: <code>run-1@20261127-192050</code> · lượt 2: <span class="pending">CHỜ SỐ</span></p>
+      <p style="margin-top:6px; font-size:12pt">Run ID lượt 1: <code>run-1@20261127-192050</code> · lượt 2: <code>run-3@20261128-115305</code></p>
+      <p style="font-size:12pt">Cả hai lượt đạt chuẩn. Điểm lượt 2 do AI đề xuất, chờ người đối chiếu.</p>
     </div>
     <div>
       <p><b>Lỗi chính ở lượt 1 (B19):</b> thiếu lớp, model vẫn soạn cho 3 lớp và báo "chưa xác nhận" dù cả 3 buổi đã chốt phòng.</p>
-      <p style="margin:6px 0 12px"><b>Cải tiến:</b> hỏi lại bằng code khi thiếu lớp / ngày.</p>
+      <p style="margin:6px 0 12px"><b>Cải tiến:</b> hỏi lại bằng code khi thiếu lớp / ngày → B19 đạt.</p>
+      <p style="margin-bottom:12px"><b>Tệ đi ở lượt 2:</b> B06, B09, B13 (thiếu phân biệt / nhắc phòng thêm, thiếu chữ "đề xuất"); đường xử lý không đổi, đầu ra model dao động. Chấm lượt 1 cùng độ chặt: 26/28.</p>
       <p><b>Lỗi khác:</b></p>
       <ul>
         <li>B10: nhãn đổi phòng không nằm trong phần gửi học viên</li>
-        <li>B06: ghi chú nói sai nguồn của phòng thêm</li>
+        <li>B06 (lượt 1): ghi chú nói sai nguồn của phòng thêm</li>
       </ul>
       <p style="margin-top:10px"><b>Cần đọc cẩn thận:</b></p>
       <ul>
@@ -147,45 +149,46 @@
       </ul>
     </div>
   </div>
-  <div class="src">Nguồn: eval/README.md · eval/report.md · eval/run-1.csv · traces/run-1.jsonl</div>
+  <div class="src">Nguồn: eval/report.md · eval/run-1.csv, run-3.csv · traces/run-1.jsonl, run-3.jsonl</div>
 </section>
 
 <section>
   <div class="kicker">6 · Chi phí khi dùng thật</div>
-  <h1>Chi phí trên mỗi task thành công: <span class="pending">CHỜ SỐ</span></h1>
+  <h1>Chi phí trên mỗi task thành công: $0.0011 (gemini-3.1-flash-lite)</h1>
   <table>
     <tr><th>Model (USD / 1M token vào – ra)</th><th>/ task thành công</th><th>/ tháng · 6 người</th><th>/ tháng · 10 người</th><th>/ tháng · 15 người</th></tr>
-    <tr><td><b>gemini-3.1-flash-lite</b> (0,25 – 1,50) · đang dùng</td><td><span class="pending">?</span></td><td><span class="pending">?</span></td><td><span class="pending">?</span></td><td><span class="pending">?</span></td></tr>
-    <tr><td>gemini-4-hydrogen (1,50 – 7,50)</td><td><span class="pending">?</span></td><td><span class="pending">?</span></td><td><span class="pending">?</span></td><td><span class="pending">?</span></td></tr>
+    <tr><td><b>gemini-3.1-flash-lite</b> (0,25 – 1,50) · đang dùng</td><td><b>$0.0011</b></td><td>$0.060</td><td>$0.100</td><td>$0.150</td></tr>
+    <tr><td>gemini-4-hydrogen (1,50 – 7,50) *</td><td>$0.0058</td><td>$0.324</td><td>$0.539</td><td>$0.809</td></tr>
   </table>
   <div class="cols" style="margin-top:20px">
     <div>
       <p><b>3 persona</b> (tỉ lệ · phiên / tháng · lượt / phiên):</p>
       <ul><li>Dùng ít: 40% · 2 · 1</li><li>Dùng vừa: 40% · 6 · 2</li><li>Dùng nhiều: 20% · 20 · 3</li></ul>
       <p style="font-size:12.5pt">Tỉ lệ và một phần tần suất là <i>tự ước tính</i>.</p>
+      <p style="font-size:12.5pt">* Token đo trên flash-lite, chỉ đổi giá. Tỉ lệ đạt 25/28. 50 phiên, 0 lỗi.</p>
     </div>
     <div class="box">
       <p><b>So với impact / người / tháng</b></p>
       <p>7,2 phiên × 25 phút ≈ 180 phút (theo persona)</p>
       <p>20 lần × 25 phút ≈ 500 phút (theo bảng impact)</p>
-      <p style="margin-top:6px">Chi phí model / người / tháng: <span class="pending">CHỜ SỐ</span></p>
+      <p style="margin-top:6px">Chi phí model / người / tháng: <b>$0.010</b> (flash-lite, kịch bản cơ sở)</p>
       <p style="font-size:12.5pt; margin-top:6px">25 phút / lần là <i>tự ước tính</i>, tính cả lần làm tay; chưa trừ thời gian duyệt bản nháp.</p>
     </div>
   </div>
-  <div class="src">Lượt mô phỏng: <span class="pending">CHỜ run ID</span> · giá: ai.google.dev/gemini-api/docs/pricing (xem 25/11/2026) · cost/personas.yaml · cost/cost-estimate.md</div>
+  <div class="src">Lượt mô phỏng: simulate-1@20261128-141820 · giá: ai.google.dev/gemini-api/docs/pricing (xem 25/11/2026) · cost/personas.yaml · cost/cost-estimate.md</div>
 </section>
 
 <section>
   <div class="kicker">7 · Kết luận</div>
-  <h1><span class="pending">CHỜ NHÓM CHỐT: GO / ITERATE / STOP</span></h1>
+  <h1>ITERATE: đạt chuẩn và rẻ, nhưng chưa đủ bằng chứng để đưa vào dùng</h1>
   <table>
     <tr><th style="width:24%">Câu hỏi</th><th>Bằng chứng</th></tr>
     <tr><td>Đau thật không?</td><td>19/29 nhận báo đổi phòng muộn; 14/29 gặp hai nguồn khác nhau. Phía người soạn mới có 3 người.</td></tr>
-    <tr><td>Chạy đúng không?</td><td>Lượt 1: 27/28 (96%), đạt chuẩn. Lượt 2: <span class="pending">CHỜ SỐ</span></td></tr>
-    <tr><td>Đủ rẻ không?</td><td><span class="pending">CHỜ SỐ</span></td></tr>
+    <tr><td>Chạy đúng không?</td><td>Lượt 1: 27/28 (96%). Lượt 2: 25/28 (89%). Cả hai đạt chuẩn ≥85% và 5/5 câu từ chối.</td></tr>
+    <tr><td>Đủ rẻ không?</td><td>$0.0011 / task thành công; khoảng $0.10 / tháng cho 10 người (chỉ tính tiền model).</td></tr>
     <tr><td>Còn thiếu gì?</td><td>Chưa thử trên dữ liệu thật; chưa có câu thử từ người dùng; chưa xác nhận thời gian tiết kiệm với key coach L3A.</td></tr>
   </table>
-  <div class="box" style="margin-top:20px"><p><b>Gợi ý để nhóm cân nhắc:</b> ITERATE nếu lượt 2 đạt chuẩn, vì bằng chứng phía người soạn và dữ liệu thử còn mỏng.</p></div>
+  <div class="box" style="margin-top:20px"><p><b>Việc phải làm trước khi GO:</b> ép phòng thêm và chữ "đề xuất" bằng code (B06, B09, B13), hỏi thêm key coach, thêm câu thử từ người dùng thật.</p></div>
   <div class="src">Nguồn: evidence/summary.md · eval/report.md · cost/cost-estimate.md</div>
 </section>
 

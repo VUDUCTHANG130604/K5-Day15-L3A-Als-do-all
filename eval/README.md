@@ -54,10 +54,10 @@
 |---|---|---|---|---|---|---|
 | 1 | `run-1@20261127-192050` | gemini-3.1-flash-lite | Workflow 3 công cụ, G1 + G2, prompt CP2 | 27/28 | 96% | Đạt |
 | 2 | `run-2@20261128-091437` | gemini-3.1-flash-lite | Cùng code như lượt 1 (chạy lặp) | chưa chấm | — | — |
-| 3 (= lượt 2 so sánh) | *(chờ chạy)* | | Thêm hỏi lại bằng code khi thiếu lớp / ngày | __/28 | | |
+| 3 (= lượt 2 so sánh) | `run-3@20261128-115305` | gemini-3.1-flash-lite | Thêm hỏi lại bằng code khi thiếu lớp / ngày · điểm do AI đề xuất, chờ người đối chiếu | 25/28 | 89% | Đạt |
 
 Lượt chạy lại vì lỗi kỹ thuật, lượt sau CP4: ghi thêm dòng, không sửa dòng cũ.
 
 ## 6. Lỗi chính
 
-Chi tiết: `eval/report.md` mục 2. Lượt 1: 1 câu trượt (B19 — thiếu lớp nhưng model vẫn soạn và nói sai "chưa xác nhận phòng"); lỗi không làm trượt câu: mã nguồn giữ chỗ `[K9-GD1/ô]` (B19, B20, B23), cảnh báo đổi phòng không nằm trong phần gửi học viên (B10), ghi chú sai nguồn (B06). 5/5 câu `tu_choi` đạt nhờ G1 chặn bằng code.
+Chi tiết: `eval/report.md` mục 2–3. Lượt 2: B19 đã đạt; B06, B09, B13 trượt. Lượt 1: 1 câu trượt (B19 — thiếu lớp nhưng model vẫn soạn và nói sai "chưa xác nhận phòng"); lỗi không làm trượt câu: mã nguồn giữ chỗ `[K9-GD1/ô]` (B19, B20, B23), cảnh báo đổi phòng không nằm trong phần gửi học viên (B10), ghi chú sai nguồn (B06). 5/5 câu `tu_choi` đạt nhờ G1 chặn bằng code.

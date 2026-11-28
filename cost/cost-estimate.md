@@ -16,27 +16,27 @@
 
 - **Số người soạn thông báo** 3 kịch bản: thấp 6 · cơ sở 10 · cao 15. Nguồn: cơ sở = số key coach khác nhau trong bảng lab coach của data giả lập; thấp và cao *(tự ước tính)*. Chưa có số thật của khoá.
 - **Giá** (USD / 1 triệu token, vào – ra; https://ai.google.dev/gemini-api/docs/pricing, theo bảng giá BTC xem 25/11/2026): `gemini-3.1-flash-lite` 0,25 – 1,50 · `gemini-4-hydrogen` 1,50 – 7,50
-- **Tỉ lệ đạt** dùng để tính: __/28 (__%) — lượt `run-3` (lượt 2 sau cải tiến)
+- **Tỉ lệ đạt** dùng để tính: 25/28 (89%) — lượt `run-3` (lượt 2 sau cải tiến)
 - Đo token trên `gemini-3.1-flash-lite`, tính giá `gemini-3.1-flash-lite` và `gemini-4-hydrogen`
 
 ## 2. Kết quả mô phỏng
 
-Lượt mô phỏng: `cost/simulate-__.csv` · run ID __ · __ phiên · seed __
+Lượt mô phỏng: `cost/simulate-1.csv` · run ID `simulate-1@20261128-141820` · 50 phiên (0 lỗi) · seed 42
 
-*(dán bảng từ `cost/simulate-N-summary.md`)*
+Chép từ `cost/simulate-1-summary.md`:
 
 | Model | Chi phí / phiên | Chi phí / task thành công | / tháng — thấp | / tháng — cơ sở | / tháng — cao | / người / tháng (cơ sở) |
 |---|---|---|---|---|---|---|
-| | | | | | | |
-| | | | | | | |
+| gemini-3.1-flash-lite | $0.00096 | $0.0011 | $0.0600 | $0.0999 | $0.1499 | $0.0100 |
+| gemini-4-hydrogen *(token đo trên flash-lite, tính giá model này)* | $0.0052 | $0.0058 | $0.3236 | $0.5393 | $0.8090 | $0.0539 |
 
 Chi phí / task thành công = chi phí trung bình mỗi phiên ÷ tỉ lệ đạt — **không coi như đạt 100%**.
 
 ## 3. So với impact
 
-- Impact / người / tháng (`spec.md` §2): __
-- Chi phí / người / tháng (cơ sở, model __): __
-- **Kết luận một dòng — đáng làm không:** __
+- Impact / người / tháng (`spec.md` §2): 180 phút (7,2 phiên theo persona × 25 phút) đến 500 phút (20 lần × 25 phút). 25 phút / lần là *(tự ước tính)*, là thời gian làm tay, chưa trừ thời gian duyệt bản nháp.
+- Chi phí / người / tháng (cơ sở, `gemini-3.1-flash-lite`): $0.010
+- **Kết luận một dòng — đáng làm không:** tiền model không phải rào cản (khoảng 1 cent / người / tháng so với vài giờ làm tay); điều cần chứng minh tiếp là thời gian tiết kiệm thật và độ ổn định đầu ra.
 
 ## 4. *(Muốn sâu hơn, không bắt buộc)*
 
