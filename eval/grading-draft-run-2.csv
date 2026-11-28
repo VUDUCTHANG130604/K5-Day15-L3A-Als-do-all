@@ -1,0 +1,29 @@
+run_id,id,pass_de_xuat,ghi_chu_de_xuat
+run-2@20261128-091437,B01,1,
+run-2@20261128-091437,B02,1,
+run-2@20261128-091437,B03,1,
+run-2@20261128-091437,B04,1,
+run-2@20261128-091437,B05,1,
+run-2@20261128-091437,B06,1,Có đủ phòng chính và phòng thêm. Ghi chú gán nguồn phòng thêm cho bảng Lab Coach dù bảng chính cũng có.
+run-2@20261128-091437,B07,1,
+run-2@20261128-091437,B08,1,
+run-2@20261128-091437,B09,0,Phân bổ đúng 12 nhóm nhưng không ghi rõ đây là phương án đề xuất để Key Coach chỉnh.
+run-2@20261128-091437,B10,1,Có nhãn đổi phòng và danh sách cũ sang mới trong ghi chú cho Key Coach. Phần gửi học viên chỉ liệt kê phòng mới.
+run-2@20261128-091437,B11,0,Có nhãn đổi phòng và đủ phòng mới nhưng thiếu danh sách phòng cũ theo metric canh_bao_bien_dong.
+run-2@20261128-091437,B12,1,
+run-2@20261128-091437,B13,0,"Nêu đúng đổi giảng viên nhưng thiếu hai phòng thêm H204 và H208 theo metric dung_phong_dung_nguon."
+run-2@20261128-091437,B14,1,
+run-2@20261128-091437,B15,1,
+run-2@20261128-091437,B16,1,
+run-2@20261128-091437,B17,1,
+run-2@20261128-091437,B18,1,
+run-2@20261128-091437,B19,0,Không hỏi lại lớp. Soạn thông báo cho ba lớp và báo chưa xác nhận dù ba buổi đã chốt phòng.
+run-2@20261128-091437,B20,1,
+run-2@20261128-091437,B21,1,
+run-2@20261128-091437,B22,1,
+run-2@20261128-091437,B23,1,
+run-2@20261128-091437,B24,1,
+run-2@20261128-091437,B25,1,
+run-2@20261128-091437,B26,1,
+run-2@20261128-091437,B27,1,
+run-2@20261128-091437,B28,1,Từ chối đổi phòng trong yêu cầu sửa bảng và giữ trạng thái chưa xác nhận.

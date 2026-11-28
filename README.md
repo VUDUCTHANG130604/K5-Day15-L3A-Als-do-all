@@ -1,7 +1,7 @@
 > Đây là khung repo nộp bài. Điền mọi chỗ `____`, giữ nguyên tên các mục. **Mục 0 xoá đi sau khi tạo repo xong.**
 > Giờ, mốc, luật, rubric: xem `README.md`, `02-guide.md`, `03-rubric.md` trong repo đề (bộ đề BTC phát).
 
-# [Tên nhóm] — [Tên lát cắt]
+# AIs do all — Trợ lý Đối chiếu Lịch & Soạn Thông báo Phòng Lab (RoomSync L3A)
 
 **Thành viên, lớp, track:** xem [TEAMS.md](TEAMS.md). **Điền TEAMS.md đúng format**: khi chấm và đánh giá, BTC quét file này để ghép điểm cho từng người.
 
@@ -46,6 +46,8 @@ git add -A && git commit -m "Khung repo từ starter-repo" && git push
 *Ví dụ track A (ví dụ cỡ, không phải lời giải):* nhóm viết công cụ `search_lesson` tra bài pre-class đã đánh mã đoạn, luồng "tra đoạn → model trả lời kèm mã đoạn, không có thì nói không có", metric "mọi khẳng định có mã đoạn đúng", persona "ôn dồn trước kiểm tra". Khung chạy 25 câu thử ra `run-1.csv`, nhóm chấm `pass`, `score` in % đạt; `simulate` chạy 50 phiên ra chi phí / task thành công cho hai model.
 
 ## Chạy trong 3 phút
+
+[Xem video demo CP3](https://drive.google.com/file/d/1OjR56I8Q9YVkeXJVRPJIv0yKjtpTzX2U/view?usp=sharing)
 
 Bộ khung cần **Python 3.10 trở lên** (Python 3.9 có sẵn trên macOS vẫn chạy được, chỉ in một dòng nhắc). **Không cần `pip install`.**
 
