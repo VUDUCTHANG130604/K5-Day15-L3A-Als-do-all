@@ -4,7 +4,8 @@
 
 Hình dạng: WORKFLOW CỐ ĐỊNH, khớp sơ đồ spec.md §4:
     Input → G1 chặn yêu cầu vượt thẩm quyền / chèn lệnh / đòi dữ liệu cá nhân (code)
-          → get_schedule() → check_conflicts() (code)
+          → get_schedule() — thiếu lớp / ngày và không có buổi để đối chiếu → hỏi lại bằng code, dừng
+          → check_conflicts() (code)
           → call_model() — quyết định trung tâm: phân loại trạng thái + soạn bản nháp
           → draft_notice() — hậu kiểm G2 bằng code → bản nháp chờ key coach duyệt.
 Không có vòng lặp agent: mỗi câu gọi model tối đa 1 lần.
@@ -114,12 +115,32 @@ def _refusal(violations: list, bundle: dict) -> str:
     return "\n".join(out)
 
 
+def _ask_back(bundle: dict) -> str:
+    """Thiếu lớp / ngày và không xác định được buổi nào: hỏi lại bằng code, không soạn thông báo, không nêu phòng."""
+    p = bundle["parsed"]
+    out = ["=== CẦN THÊM THÔNG TIN — CHƯA SOẠN THÔNG BÁO (hỏi lại bằng code, không gọi AI) ===",
+           "Bạn cho mình biết thêm: " + "; ".join(bundle["missing"]) + "."]
+    if p.get("relative"):
+        out.append("Mình hiểu '%s' là ngày %s (bảng phân công xuất 21:00 27/04/2027)." % (p["relative"], ", ".join(p["dates"])))
+    if bundle["no_match_reason"]:
+        out.append(bundle["no_match_reason"])
+    if bundle["day_sessions"]:
+        out.append("Các buổi có trong ngày, chọn buổi cần soạn:")
+        out += ["  - " + s for s in bundle["day_sessions"]]
+    out.append("Gửi lại yêu cầu kèm lớp và ngày (dd/mm) hoặc mã buổi, vd: \"Soạn thông báo phòng L3A LAB 9\".")
+    return "\n".join(out)
+
+
 def answer(text: str) -> dict:
     violations = detect_violations(text)
     bundle = get_schedule(text)
     if violations:
         note("G1 chặn: " + ", ".join(v[0] for v in violations))
         return {"output": _refusal(violations, bundle)}
+    # Không có buổi nào để đối chiếu mà còn thiếu thông tin → model dễ suy ra sai "chưa xác nhận phòng" (lỗi B19, lượt 1).
+    if bundle["missing"] and not bundle["matched_sessions"]:
+        note("Hỏi lại: thiếu " + "; ".join(bundle["missing"]))
+        return {"output": _ask_back(bundle)}
 
     checks = check_conflicts(bundle)
     reply = call_model(SYSTEM, build_context(text, bundle, checks))

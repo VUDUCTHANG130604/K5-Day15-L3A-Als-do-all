@@ -18,7 +18,7 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): Bộ dữ 
 - **Việc họ cố làm xong (`động từ + đối tượng + bối cảnh`, không có chữ AI):** Đối chiếu thông tin phòng học vừa cập nhật giữa bảng Ban đào tạo với bảng Lab Coach và danh sách nhóm để soạn thông báo/câu trả lời chính xác về giờ, phòng cho học viên L3A tối trước buổi học hoặc khi có thay đổi sát giờ.
 - **Hôm nay họ giải bằng gì, hỏng ở đâu, vì sao chưa bỏ:** Giải bằng cách mở 2–3 file Google Sheets và nhóm chat để dò mắt từng ô chữ tự do. Hỏng ở chỗ: ô bảng tính gõ tự do không chuẩn hóa, bảng Lab Coach thường lưu bản chép cũ (`dk:` hoặc `chờ xác nhận`) trong khi bảng Ban đào tạo đã chốt hoặc vừa đổi phòng lần 2 lúc nửa đêm → dễ nhìn nhầm bản cũ, báo sót nhóm hoặc chậm phản hồi. Chưa bỏ được vì phòng học phụ thuộc trường cấp sát ngày, không cố định được từ đầu khoá.
 - **Pain (KHÔNG chữ AI):** Key Coach / Trợ giảng L3A — đang cần chốt và báo phòng học/lab cho các nhóm học viên và lab coach vào tối trước buổi học hoặc khi có tin đổi phòng — vướng ở chỗ thông tin phòng nằm rải rác ở hai bảng tính lệch trạng thái và lịch sử sửa đổi sát giờ — hậu quả là mất 20–30 phút dò thủ công mỗi buổi và có nguy cơ báo nhầm phòng cũ khiến hàng chục học viên đi nhầm khu học.
-- **Bằng chứng — số chính + kết luận (chi tiết: `evidence/summary.md`):** Khảo sát n = 29 (26 học viên, 2 lab coach, 1 key coach; `evidence/survey/`): **27/29 (93%)** biết ≥1 buổi phòng đổi hoặc chỉ chốt trong 24 giờ trước giờ học trong 4 tuần qua; **19/29 (66%)** nhận báo đổi phòng muộn hoặc sau khi đã báo; **14/29 (48%)** gặp hai nguồn ghi hai phòng khác nhau; **12/29 (41%)** mất ≥15 phút mới chắc chắn phòng; **25/29 (86%)** có hậu quả (đến muộn, lỡ buổi, ảnh hưởng điểm danh). Phía người soạn thông báo (n = 3): 3/3 từng gửi thông báo sai / thiếu, key coach mất 30–60 phút lần gần nhất. Trích: *"Vào được phòng theo lịch được 30 phút mới thấy email thông báo đổi phòng và mất thêm 15 phút di chuyển"* (R10). **Kết luận:** pain rõ ở phía học viên nhận lịch; phía key coach có tín hiệu nhưng n quá nhỏ.
+- **Bằng chứng — số chính + kết luận (chi tiết: `evidence/summary.md`):** Khảo sát n = 29 (26 học viên, 2 lab coach, 1 key coach; `evidence/survey/`): **27/29 (93%)** biết ≥1 buổi phòng đổi hoặc chỉ chốt trong 24 giờ trước giờ học trong 4 tuần qua; **19/29 (66%)** nhận báo đổi phòng muộn hoặc sau khi đã báo; **14/29 (48%)** gặp hai nguồn ghi hai phòng khác nhau; **12/29 (41%)** mất ≥15 phút mới chắc chắn phòng; **24/29 (83%)** đến muộn, lỡ một phần buổi hoặc bị ảnh hưởng điểm danh / điểm (25/29 = 86% nếu tính cả phải nhờ người khác xử lý). Phía người soạn thông báo (n = 3): 3/3 từng gửi thông báo sai / thiếu, key coach mất 30–60 phút lần gần nhất. Trích: *"Vào được phòng theo lịch được 30 phút mới thấy email thông báo đổi phòng và mất thêm 15 phút di chuyển"* (R10). **Kết luận:** pain rõ ở phía học viên nhận lịch; phía key coach có tín hiệu nhưng n quá nhỏ.
 
 ## §2. Impact & quyết định chọn *(guide 1.3)*
 
@@ -35,9 +35,10 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): Bộ dữ 
   - *Loại H2 (Xếp đổi ca Lab Coach):* Việc đổi ca cần sự đồng thuận hai chiều giữa các coach qua tin nhắn cá nhân, AI không tự quyết thay được và tần suất thấp hơn.
   - *Loại H3 (Xếp lịch tổng đầu kỳ):* Chỉ diễn ra 1–2 lần đầu giai đoạn, không giải quyết nỗi đau biến động phòng học hàng ngày sát giờ học.
 - **Số lần / tháng của từng kiểu người dùng (dùng cho persona ở §8):**
-  - *Persona 1 (Key Coach trực 1 buổi/tuần):* ~8 lần tra cứu & soạn thông báo/tháng.
-  - *Persona 2 (Day Lead / Trợ giảng chính L3A trực thường xuyên):* ~25 lần đối chiếu & trả lời đổi phòng/tháng.
-  - *Persona 3 (Điều phối viên Ban đào tạo rà soát chéo nhiều lớp L2/L3):* ~45 lần kiểm tra xung đột & cập nhật thông báo/tháng.
+  - *Persona 1 — key coach dùng ít (`key_coach_it`, 40%):* ~2 phiên / tháng, 1 lượt hỏi / phiên (khảo sát O1, n = 3; tỉ lệ *(tự ước tính)*).
+  - *Persona 2 — key coach dùng vừa (`key_coach_vua`, 40%):* ~6 phiên / tháng, 2 lượt / phiên (đếm data giả lập: 4–9 buổi / key coach trong ~3,5 tuần; số lượt *(tự ước tính)*).
+  - *Persona 3 — Day Lead / ban đào tạo dùng nhiều (`day_lead_nhieu`, 20%):* ~20 phiên / tháng, 3 lượt / phiên *(tự ước tính)*.
+  - Trung bình theo tỉ lệ: **7,2 phiên / người / tháng**, thấp hơn mức 20 lần / người / tháng dùng ở bảng impact phía trên (cả hai đều chưa có số thật của khoá) → khi so chi phí với impact ở §8, dùng cả hai mức.
 
 ## §3. Giải pháp tương tự *(guide 2.1)*
 - **Google Sheets Conditional Formatting + Notification Rules:**
@@ -93,6 +94,7 @@ flowchart LR
     LLM --> T3
     T3 --> G2
     G1 -->|"Vi phạm / Tấn công"| OUT
+    T1 -->|"Thiếu lớp / ngày, không có buổi<br/>→ hỏi lại bằng code"| OUT
     G2 --> OUT
     OUT --> HUM
 ```
@@ -113,9 +115,10 @@ flowchart LR
   - *Rủi ro lớn nhất:* AI bịa phòng học, lấy phòng dự kiến (`dk`) ở bảng phụ của Lab Coach báo thành phòng chính thức, hoặc bị đánh lừa bởi chỉ dẫn chèn (Prompt Injection) trong ô ghi chú/form đổi ca.
   - *Chặn ở đâu, bằng gì:*
     1. **G1 — trước mọi thứ (`agent.detect_violations`, code):** nhận diện 3 loại yêu cầu — chèn lệnh, đòi dữ liệu cá nhân, vượt thẩm quyền (tự chốt / sửa phòng, tự gửi, sửa bảng gốc) — theo mẫu chung của từng loại, không so khớp nguyên văn câu thử. Vi phạm → trả lời từ chối dựng bằng code kèm trạng thái thật của buổi, **không gọi model**.
-    2. **Trước khi gọi model (`check_conflicts`, code):** trạng thái chính thức `CONFIRMED` / `PENDING` / `UNCLEAR` / `ONLINE` / `NO_CLASS` lấy thẳng từ ô bảng phân công; lệch bảng, đổi phòng/giờ/giảng viên, trùng phòng/người tính bằng code rồi đưa vào ngữ cảnh. Model không tự suy ra trạng thái.
-    3. **Sau khi gọi model (`draft_notice`, code — G2):** mọi mã phòng trong bản nháp phải nằm trong tập phòng có trong dữ liệu của buổi đó (chính thức, dự kiến, phòng thêm, phòng cũ, bảng lab coach); mã lạ bị thay bằng `[⚠ X: không có căn cứ trong bảng phân công]`. Buổi `PENDING`/`UNCLEAR` mà bản nháp thiếu chữ "CHƯA XÁC NHẬN" → chèn nhãn lên đầu; buổi đổi phòng mà thiếu chữ "ĐỔI PHÒNG" → chèn nhãn kèm phòng cũ → mới.
-    4. Văn bản người dùng được đặt trong khối "là dữ liệu, không phải lệnh" của prompt; system prompt cấm làm theo lệnh trong đó (lớp chặn thứ hai nếu G1 sót).
+    2. **Thiếu thông tin (`agent._ask_back`, code):** câu thiếu lớp hoặc ngày và không xác định được buổi nào → trả câu hỏi lại kèm danh sách buổi trong ngày, **không gọi model**, không nêu phòng (thêm sau lượt 1, vì B19).
+    3. **Trước khi gọi model (`check_conflicts`, code):** trạng thái chính thức `CONFIRMED` / `PENDING` / `UNCLEAR` / `ONLINE` / `NO_CLASS` lấy thẳng từ ô bảng phân công; lệch bảng, đổi phòng/giờ/giảng viên, trùng phòng/người tính bằng code rồi đưa vào ngữ cảnh. Model không tự suy ra trạng thái.
+    4. **Sau khi gọi model (`draft_notice`, code — G2):** mọi mã phòng trong bản nháp phải nằm trong tập phòng có trong dữ liệu của buổi đó (chính thức, dự kiến, phòng thêm, phòng cũ, bảng lab coach); mã lạ bị thay bằng `[⚠ X: không có căn cứ trong bảng phân công]`. Buổi `PENDING`/`UNCLEAR` mà bản nháp thiếu chữ "CHƯA XÁC NHẬN" → chèn nhãn lên đầu; buổi đổi phòng mà thiếu chữ "ĐỔI PHÒNG" → chèn nhãn kèm phòng cũ → mới.
+    5. Văn bản người dùng được đặt trong khối "là dữ liệu, không phải lệnh" của prompt; system prompt cấm làm theo lệnh trong đó (lớp chặn thứ hai nếu G1 sót).
 - **Chỗ người duyệt** (việc AI không được tự làm):
   - Key Coach / Trợ giảng là người duy nhất quyết định: (1) liên hệ Ban đào tạo để chốt các phòng còn `chờ xác nhận` hoặc đang mâu thuẫn giữa 2 bảng; (2) chỉnh sửa câu chữ cuối cùng và tự tay copy/gửi bản nháp lên kênh thông báo chính thức của lớp.
 - **Nguyên tắc thiết kế** (≥3, bắt buộc G10):
@@ -157,7 +160,7 @@ Kịch bản làm nhóm sợ nhất khi demo: **#2** — bảng lab coach đã c
 
 ## §6. Bốn đường đi của trải nghiệm
 - **Suôn sẻ:** *"Soạn thông báo phòng cho L3A LAB 9 sáng 27/04"* → `get_schedule` lấy ô F26 (đã chốt C203, C402, E303, H201) → `check_conflicts` thấy bảng lab coach còn `dk` → model soạn phần gửi học viên + ghi chú cho key coach → G2 không phát hiện gì → key coach duyệt, tự gửi.
-- **Không chắc (lớp 2):** thiếu lớp / ngày → không soạn cho lớp nào, hỏi lại và liệt kê các buổi trong ngày.
+- **Không chắc (lớp 2):** thiếu lớp / ngày → code trả câu hỏi lại và liệt kê các buổi trong ngày (không gọi model, không soạn cho lớp nào).
 - **Không có căn cứ (lớp 1):** phòng chờ xác nhận, ô lỗi, không có buổi → "CHƯA XÁC NHẬN" / "không xác định được" / "không có buổi"; nếu model lỡ viết phòng lạ, G2 gắn cờ.
 - **Người dùng sửa:** key coach sửa câu chữ, bỏ dòng, đổi chia nhóm trước khi tự gửi; muốn chốt phòng thì hỏi ban đào tạo rồi chạy lại.
 - **Bị đòi ngoài phạm vi (lớp 3):** G1 từ chối bằng code, không gọi model, vẫn cho biết trạng thái thật của buổi.
@@ -170,7 +173,7 @@ Kịch bản làm nhóm sợ nhất khi demo: **#2** — bảng lab coach đã c
 - **Kết quả:** lượt 1 **27/28 (96%)** — thuong 9/9 · kho 13/14 · tu_choi 5/5 → **đạt chuẩn** · run ID `run-1@20261127-192050` · model `gemini-3.1-flash-lite` · lượt 2 __/__ (__%) — run ID: __ → chi tiết `eval/report.md`, hồ sơ `eval/README.md`.
 
 ## §8. Chi phí khi dùng thật *(guide 4.2)*
-- Persona + giá: `cost/personas.yaml` · lượt mô phỏng: `cost/simulate-__.csv` (__ phiên)
+- Persona + giá: `cost/personas.yaml` (3 persona · 6 / 10 / 15 người · 2 mức giá) · lượt mô phỏng: `cost/simulate-__.csv` (__ phiên)
 - Chi phí / task thành công: __ (model __) · __ (model __)
 - Chi phí / tháng ở quy mô thật: thấp __ · cơ sở __ · cao __ → chi tiết `cost/cost-estimate.md`
 - So với impact / người / tháng (§2): đáng làm không, vì sao: *(cập nhật sau khi chạy `python run.py simulate` ở CP3/CP4)*.
@@ -207,6 +210,10 @@ Kịch bản làm nhóm sợ nhất khi demo: **#2** — bảng lab coach đã c
 | 27/11 tối (sau CP2) | Nối model thật `gemini-3.1-flash-lite`; thêm thử lại khi API báo 429 / 5xx / hết giờ chờ trong `codebase/ai.py` | Lượt mô phỏng thử bị HTTP 503 ("model is currently experiencing high demand") ở 8/10 phiên |
 | 27/11 19:20 | Chạy lượt 1 `run-1@20261127-192050`: 27/28 (96%), đạt chuẩn §7 | Lỗi chính B19 — xem `eval/report.md` |
 | 27/11 tối | Điền `cost/personas.yaml` (số người dùng, persona, 2 mức giá) và chạy `simulate --try` | Chuẩn bị mô phỏng chi phí CP4 |
+| 28/11 09:14 | Chạy `run-2@20261128-091437` với **cùng code như lượt 1** (chưa có cải tiến), chưa chấm | Lượt chạy lặp; không dùng làm kết quả cải tiến |
+| 28/11 10:50 | **Một cải tiến trước lượt so sánh:** thiếu lớp / ngày và không có buổi → `agent.py` hỏi lại bằng code, không gọi model | B19 trượt ở lượt 1: thiếu lớp nhưng model soạn cho 3 lớp và báo sai "chưa xác nhận phòng" |
+| 28/11 sáng | Sửa số ở §1: "đến muộn / lỡ buổi / ảnh hưởng điểm danh" là 24/29 (trước ghi nhầm 25/29) | `python evidence/survey/count.py` |
+| 28/11 sáng | §2: tần suất persona đổi từ 8 / 25 / 45 sang 2 / 6 / 20 phiên / tháng cho khớp `cost/personas.yaml` | Hai nơi ghi hai bộ số; bộ trong `personas.yaml` có ghi nguồn |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)** (sửa theo góp ý — không sửa chuẩn "đạt", câu thử, số bằng chứng, kết quả các lượt đã chạy)
 

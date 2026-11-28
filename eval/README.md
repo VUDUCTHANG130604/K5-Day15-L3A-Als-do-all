@@ -53,7 +53,8 @@
 | Lượt | Run ID | Model | Cấu hình (prompt / công cụ / thay đổi) | Đạt / tổng | % | Đạt chuẩn? |
 |---|---|---|---|---|---|---|
 | 1 | `run-1@20261127-192050` | gemini-3.1-flash-lite | Workflow 3 công cụ, G1 + G2, prompt CP2 | 27/28 | 96% | Đạt |
-| 2 | *(CP4)* | | | __/28 | | |
+| 2 | `run-2@20261128-091437` | gemini-3.1-flash-lite | Cùng code như lượt 1 (chạy lặp) | chưa chấm | — | — |
+| 3 (= lượt 2 so sánh) | *(chờ chạy)* | | Thêm hỏi lại bằng code khi thiếu lớp / ngày | __/28 | | |
 
 Lượt chạy lại vì lỗi kỹ thuật, lượt sau CP4: ghi thêm dòng, không sửa dòng cũ.
 

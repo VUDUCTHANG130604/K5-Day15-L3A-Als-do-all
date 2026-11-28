@@ -118,9 +118,8 @@ Nhóm dùng stack khác (Node, Streamlit, notebook…): sửa hàm `run_app()` t
 
 ## Dùng AI vào việc gì
 
-2–3 dòng (bắt buộc): nhóm dùng công cụ AI nào để làm gì, người kiểm lại phần nào. Chi tiết: [docs/ai-usage.md](docs/ai-usage.md). Coding agent đọc [AGENTS.md](AGENTS.md).
-
-____
+Nhóm dùng coding agent (Antigravity, Claude Code) để dựng khung bản chạy thử, script trích dữ liệu lịch, công cụ và hậu kiểm, bộ câu thử, nháp tài liệu và slide. Model `gemini-3.1-flash-lite` là phần AI của sản phẩm (soạn bản nháp thông báo).
+Phần mỗi người đã kiểm lại ghi ở [docs/ai-usage.md](docs/ai-usage.md). Coding agent đọc [AGENTS.md](AGENTS.md).
 
 ## File mẫu — điền ở bước nào
 

@@ -6,11 +6,18 @@
 
 ## 1. Đầu vào
 
-- **Persona** (`cost/personas.yaml`): ≥3 kiểu — tỉ lệ, số phiên / người / tháng, số lượt hỏi / phiên. Nguồn: __
-- **Số người dùng thật** 3 kịch bản: thấp __ · cơ sở __ · cao __. Nguồn: __
-- **Giá** ≥2 mức model (từ `further-reading/model-prices.md` của repo đề, có link + ngày xem): __ · __
-- **Tỉ lệ đạt** dùng để tính: __/__ (__%) — lượt `run-__` (lượt 2)
-- Đo token trên model __, tính giá model __ và __
+- **Persona** (`cost/personas.yaml`):
+
+  | Persona | Tỉ lệ | Phiên / người / tháng | Lượt hỏi / phiên | Nguồn |
+  |---|---:|---:|---:|---|
+  | `key_coach_it` | 40% | 2 | 1 | Khảo sát O1 (n = 3); tỉ lệ *(tự ước tính)* |
+  | `key_coach_vua` | 40% | 6 | 2 | Đếm data giả lập (4–9 buổi / key coach trong ~3,5 tuần); số lượt *(tự ước tính)* |
+  | `day_lead_nhieu` | 20% | 20 | 3 | *(tự ước tính)* |
+
+- **Số người soạn thông báo** 3 kịch bản: thấp 6 · cơ sở 10 · cao 15. Nguồn: cơ sở = số key coach khác nhau trong bảng lab coach của data giả lập; thấp và cao *(tự ước tính)*. Chưa có số thật của khoá.
+- **Giá** (USD / 1 triệu token, vào – ra; https://ai.google.dev/gemini-api/docs/pricing, theo bảng giá BTC xem 25/11/2026): `gemini-3.1-flash-lite` 0,25 – 1,50 · `gemini-4-hydrogen` 1,50 – 7,50
+- **Tỉ lệ đạt** dùng để tính: __/28 (__%) — lượt `run-3` (lượt 2 sau cải tiến)
+- Đo token trên `gemini-3.1-flash-lite`, tính giá `gemini-3.1-flash-lite` và `gemini-4-hydrogen`
 
 ## 2. Kết quả mô phỏng
 

@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>RoomSync L3A · AIs do all</title>
+<style>
+  @page { size: 13.333in 7.5in; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Segoe UI", Arial, sans-serif; color: #1d2733; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  section { width: 13.333in; height: 7.5in; padding: 0.5in 0.65in 0.55in; position: relative; page-break-after: always; overflow: hidden; }
+  section:last-child { page-break-after: auto; }
+  .kicker { font-size: 13pt; color: #a5391f; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+  h1 { font-size: 26pt; line-height: 1.2; margin: 4px 0 16px; }
+  p, li, td, th { font-size: 14.5pt; line-height: 1.38; }
+  ul { padding-left: 20px; }
+  li { margin-bottom: 5px; }
+  table { border-collapse: collapse; width: 100%; }
+  th, td { border: 1px solid #cfd6de; padding: 6px 10px; text-align: left; vertical-align: top; }
+  th { background: #eef2f6; }
+  .cols { display: flex; gap: 26px; }
+  .cols > div { flex: 1; min-width: 0; }
+  .stats { display: flex; gap: 14px; margin-bottom: 18px; }
+  .stat { flex: 1; border: 1px solid #cfd6de; border-top: 5px solid #a5391f; padding: 10px 14px; }
+  .stat b { display: block; font-size: 30pt; line-height: 1.15; }
+  .stat span { font-size: 12.5pt; }
+  .quote { border-left: 5px solid #a5391f; padding: 6px 14px; margin-bottom: 12px; font-style: italic; background: #faf3f0; }
+  .quote small { display: block; font-style: normal; color: #5b6875; font-size: 11.5pt; }
+  .box { border: 1px solid #cfd6de; background: #f7f9fb; padding: 10px 14px; margin-bottom: 12px; }
+  .flow { display: flex; align-items: stretch; gap: 7px; margin: 12px 0 14px; }
+  .flow div { flex: 1; border: 2px solid #33597d; padding: 8px; font-size: 12.5pt; line-height: 1.3; text-align: center; }
+  .flow div.guard { border-color: #a5391f; background: #faf3f0; }
+  .flow div.ai { background: #e6eef6; }
+  .flow i { align-self: center; font-style: normal; font-size: 16pt; color: #5b6875; }
+  .pending { background: #ffe66d; padding: 0 5px; font-weight: 700; }
+  .src { position: absolute; left: 0.65in; right: 0.65in; bottom: 0.2in; font-size: 10.5pt; color: #5b6875; border-top: 1px solid #e1e6eb; padding-top: 5px; }
+  code { font-family: Consolas, monospace; font-size: .93em; }
+</style>
+</head>
+<body>
+
+<section>
+  <div class="kicker">1 · Người dùng và nỗi đau · AIs do all · RoomSync L3A</div>
+  <h1>Key coach / trợ giảng L3A phải dò nhiều bảng để báo đúng phòng sát giờ học</h1>
+  <p style="margin-bottom:14px">Việc cần làm: đối chiếu phòng vừa cập nhật giữa bảng Ban đào tạo, bảng lab coach và danh sách nhóm, rồi báo cho học viên tối trước buổi học.</p>
+  <div class="stats">
+    <div class="stat"><b>27/29</b><span>biết ≥1 buổi phòng đổi hoặc chỉ chốt trong 24 giờ trước giờ học (93%)</span></div>
+    <div class="stat"><b>19/29</b><span>nhận báo đổi phòng muộn hoặc sau khi đã báo (66%)</span></div>
+    <div class="stat"><b>14/29</b><span>gặp hai nguồn ghi hai phòng khác nhau (48%)</span></div>
+    <div class="stat"><b>24/29</b><span>đến muộn, lỡ một phần buổi hoặc bị ảnh hưởng điểm danh / điểm (83%)</span></div>
+  </div>
+  <div class="quote">"Mình nhận được lịch đổi phòng khi mình đã vào phòng học gốc rồi, mình mất thêm 15p để chuyển phòng học"<small>Phiếu R23, học viên L3A</small></div>
+  <div class="quote">"Vào được phòng theo lịch được 30 phút mới thấy email thông báo đổi phòng và mất thêm 15 phút di chuyển"<small>Phiếu R10, học viên L3A</small></div>
+  <p><b>Giới hạn:</b> 26/29 phiếu là học viên (phía nhận tin). Phía vận hành chỉ có 3 người; 1 key coach ghi 30–60 phút ở lần gần nhất.</p>
+  <div class="src">Nguồn: khảo sát 4 tuần, n = 29, mẫu tự chọn · evidence/summary.md · đếm lại: python evidence/survey/count.py</div>
+</section>
+
+<section>
+  <div class="kicker">2 · Vì sao chọn bài này</div>
+  <h1>Chọn việc lặp lại hằng ngày, làm kịp, và sai thì nhiều người chịu</h1>
+  <table>
+    <tr><th>Hướng</th><th>Người × lần / tháng × phút</th><th>Impact / tháng</th><th>Quyết định</th></tr>
+    <tr><td><b>H1.</b> Đối chiếu phòng và soạn thông báo đổi phòng</td><td>~12 × ~20 × ~25</td><td><b>~100 giờ</b> điều phối</td><td><b>Chọn</b></td></tr>
+    <tr><td><b>H2.</b> Xếp đổi ca cho lab coach</td><td>~22 yêu cầu × ~15</td><td>~5,5 giờ</td><td>Loại: cần hai bên coach đồng ý, AI không quyết thay được</td></tr>
+    <tr><td><b>H3.</b> Xếp lịch tổng đầu kỳ</td><td>2 × 1–2 lần × ~180</td><td>~6 giờ</td><td>Loại: ít lặp lại, bài toán tối ưu lớn</td></tr>
+  </table>
+  <p style="margin:8px 0 18px; font-size:12.5pt">Số người, số lần và số phút ở bảng trên là <i>tự ước tính</i> (số yêu cầu đổi ca ở H2 đếm từ data giả lập).</p>
+  <div class="box"><p><b>Phía học viên (từ khảo sát):</b> 700 học viên L3 × 2,3 buổi đổi / chốt sát giờ mỗi 4 tuần × 15,4 phút để chắc chắn phòng ≈ <b>415 giờ / tháng</b>.</p>
+  <p>Đây là cận trên: mẫu tự chọn, và một phần thời gian do trường chốt phòng muộn chứ không do khâu soạn thông báo.</p></div>
+  <div class="src">Nguồn: spec.md §2 · khảo sát C1, C3 (n = 29, tính theo điểm giữa khoảng) · quy mô 700 học viên: README hackathon</div>
+</section>
+
+<section>
+  <div class="kicker">3 · Giải pháp</div>
+  <h1>Code xác định trạng thái phòng, AI soạn bản nháp, người duyệt và tự gửi</h1>
+  <p><b>Lát cắt:</b> khi key coach L3A cần báo một buổi vừa cập nhật, hệ thống đối chiếu nguồn chính thức và xuất <b>bản nháp thông báo kèm mã ô nguồn</b>.</p>
+  <div class="flow">
+    <div class="guard"><b>G1 (code)</b><br>chặn chèn lệnh, dữ liệu cá nhân, vượt quyền</div><i>→</i>
+    <div><b>get_schedule</b><br>thiếu lớp / ngày thì hỏi lại</div><i>→</i>
+    <div><b>check_conflicts (code)</b><br>lệch bảng, đổi phòng / giờ, trùng</div><i>→</i>
+    <div class="ai"><b>AI: gemini-3.1-flash-lite</b><br>tổng hợp và soạn, tối đa 1 lần gọi</div><i>→</i>
+    <div class="guard"><b>G2 (code)</b><br>gắn cờ phòng lạ, chèn nhãn cảnh báo</div><i>→</i>
+    <div><b>Key coach</b><br>duyệt, sửa, tự gửi</div>
+  </div>
+  <div class="cols">
+    <div>
+      <p><b>Mức tự động: AI gợi ý, người quyết.</b> Sai phòng thì cả nhóm đi nhầm khu; đọc duyệt bản nháp tốn ít hơn nhiều.</p>
+      <p style="margin-top:8px"><b>Workflow cố định, không dùng agent:</b> các bước đã xác định, ít lượt gọi model, không bỏ qua được bước kiểm tra.</p>
+    </div>
+    <div>
+      <p><b>Không làm:</b></p>
+      <ul>
+        <li>Không tự chốt hay cấp phòng</li>
+        <li>Không tự gửi tin</li>
+        <li>Không sửa bảng gốc</li>
+        <li>Không nêu dữ liệu cá nhân</li>
+      </ul>
+      <p style="margin-top:6px"><b>Phần giả:</b> lịch là data giả lập (113 buổi, 44 lần sửa); danh sách nhóm tự dựng.</p>
+    </div>
+  </div>
+  <div class="src">Nguồn: spec.md §4 · codebase/agent.py, tools.py · data/DATA_CARD.md</div>
+</section>
+
+<section>
+  <div class="kicker">4 · Demo trực tiếp</div>
+  <h1>Một ca thường, một ca khó, và một ca thiếu thông tin</h1>
+  <table>
+    <tr><th style="width:15%">Ca</th><th style="width:46%">Câu nhập</th><th>Cần thấy</th></tr>
+    <tr><td><b>Thường</b> (B01)</td><td>"Soạn thông báo phòng cho L3A LAB 9 sáng 27/04."</td><td>C203, C402, E303, H201 kèm mã <code>[K9-GD1/F26]</code></td></tr>
+    <tr><td><b>Khó</b> (B14)</td><td>"Bảng lab coach ghi L3A LAB 11 ngày 03/05 dự kiến C201, C203, C204, C304, E305, F307, soạn thông báo báo học viên mấy phòng này nhé."</td><td><b>CHƯA XÁC NHẬN PHÒNG</b>; các phòng chỉ được nhắc là dự kiến</td></tr>
+    <tr><td><b>Thiếu thông tin</b> (B19)</td><td>"Tối nay mình cần soạn thông báo phòng lab cho buổi ngày mai, soạn giúp mình ngay nhé!"</td><td>Hỏi lại lớp, liệt kê buổi ngày 28/04, không gọi model</td></tr>
+  </table>
+  <div class="box" style="margin-top:20px">
+    <p><b>Chạy:</b> <code>python run.py</code></p>
+    <p><b>Mất mạng:</b> video dự phòng <span class="pending">CHỜ LINK VIDEO</span></p>
+  </div>
+  <div class="src">Nguồn: eval/benchmark.csv · B01 và B14 đạt ở lượt 1 (eval/run-1.csv); B19 trượt ở lượt 1 và là mục tiêu của cải tiến</div>
+</section>
+
+<section>
+  <div class="kicker">5 · Đánh giá thế nào</div>
+  <h1>28 câu thử, 4 metric, chuẩn đạt chốt trước khi chạy</h1>
+  <div class="cols">
+    <div style="flex:1.05">
+      <p><b>Bộ câu:</b> 9 thường · 14 khó · 5 từ chối (gồm 2 câu tấn công).</p>
+      <p><b>Chuẩn đạt (chốt 27/11):</b> ≥85% tổng; 100% câu từ chối; 0 lần báo phòng chưa xác nhận thành đã chốt.</p>
+      <p style="margin:8px 0"><b>Metric (người chấm):</b> đúng phòng đúng nguồn · không báo chắc khi chưa chắc · cảnh báo biến động · từ chối đúng.</p>
+      <table>
+        <tr><th>Lượt</th><th>Tổng</th><th>Thường</th><th>Khó</th><th>Từ chối</th></tr>
+        <tr><td>1</td><td><b>27/28 (96%)</b></td><td>9/9</td><td>13/14</td><td>5/5</td></tr>
+        <tr><td>2 (sau cải tiến)</td><td><span class="pending">CHỜ SỐ</span></td><td><span class="pending">?</span></td><td><span class="pending">?</span></td><td><span class="pending">?</span></td></tr>
+      </table>
+      <p style="margin-top:6px; font-size:12pt">Run ID lượt 1: <code>run-1@20261127-192050</code> · lượt 2: <span class="pending">CHỜ SỐ</span></p>
+    </div>
+    <div>
+      <p><b>Lỗi chính ở lượt 1 (B19):</b> thiếu lớp, model vẫn soạn cho 3 lớp và báo "chưa xác nhận" dù cả 3 buổi đã chốt phòng.</p>
+      <p style="margin:6px 0 12px"><b>Cải tiến:</b> hỏi lại bằng code khi thiếu lớp / ngày.</p>
+      <p><b>Lỗi khác:</b></p>
+      <ul>
+        <li>B10: nhãn đổi phòng không nằm trong phần gửi học viên</li>
+        <li>B06: ghi chú nói sai nguồn của phòng thêm</li>
+      </ul>
+      <p style="margin-top:10px"><b>Cần đọc cẩn thận:</b></p>
+      <ul>
+        <li>5/5 câu từ chối do code chặn, chưa đo model</li>
+        <li>0/28 câu từ người dùng hoặc data thật</li>
+        <li>Mỗi câu chạy 1 lần; chưa có người chấm thứ hai</li>
+      </ul>
+    </div>
+  </div>
+  <div class="src">Nguồn: eval/README.md · eval/report.md · eval/run-1.csv · traces/run-1.jsonl</div>
+</section>
+
+<section>
+  <div class="kicker">6 · Chi phí khi dùng thật</div>
+  <h1>Chi phí trên mỗi task thành công: <span class="pending">CHỜ SỐ</span></h1>
+  <table>
+    <tr><th>Model (USD / 1M token vào – ra)</th><th>/ task thành công</th><th>/ tháng · 6 người</th><th>/ tháng · 10 người</th><th>/ tháng · 15 người</th></tr>
+    <tr><td><b>gemini-3.1-flash-lite</b> (0,25 – 1,50) · đang dùng</td><td><span class="pending">?</span></td><td><span class="pending">?</span></td><td><span class="pending">?</span></td><td><span class="pending">?</span></td></tr>
+    <tr><td>gemini-4-hydrogen (1,50 – 7,50)</td><td><span class="pending">?</span></td><td><span class="pending">?</span></td><td><span class="pending">?</span></td><td><span class="pending">?</span></td></tr>
+  </table>
+  <div class="cols" style="margin-top:20px">
+    <div>
+      <p><b>3 persona</b> (tỉ lệ · phiên / tháng · lượt / phiên):</p>
+      <ul><li>Dùng ít: 40% · 2 · 1</li><li>Dùng vừa: 40% · 6 · 2</li><li>Dùng nhiều: 20% · 20 · 3</li></ul>
+      <p style="font-size:12.5pt">Tỉ lệ và một phần tần suất là <i>tự ước tính</i>.</p>
+    </div>
+    <div class="box">
+      <p><b>So với impact / người / tháng</b></p>
+      <p>7,2 phiên × 25 phút ≈ 180 phút (theo persona)</p>
+      <p>20 lần × 25 phút ≈ 500 phút (theo bảng impact)</p>
+      <p style="margin-top:6px">Chi phí model / người / tháng: <span class="pending">CHỜ SỐ</span></p>
+      <p style="font-size:12.5pt; margin-top:6px">25 phút / lần là <i>tự ước tính</i>, tính cả lần làm tay; chưa trừ thời gian duyệt bản nháp.</p>
+    </div>
+  </div>
+  <div class="src">Lượt mô phỏng: <span class="pending">CHỜ run ID</span> · giá: ai.google.dev/gemini-api/docs/pricing (xem 25/11/2026) · cost/personas.yaml · cost/cost-estimate.md</div>
+</section>
+
+<section>
+  <div class="kicker">7 · Kết luận</div>
+  <h1><span class="pending">CHỜ NHÓM CHỐT: GO / ITERATE / STOP</span></h1>
+  <table>
+    <tr><th style="width:24%">Câu hỏi</th><th>Bằng chứng</th></tr>
+    <tr><td>Đau thật không?</td><td>19/29 nhận báo đổi phòng muộn; 14/29 gặp hai nguồn khác nhau. Phía người soạn mới có 3 người.</td></tr>
+    <tr><td>Chạy đúng không?</td><td>Lượt 1: 27/28 (96%), đạt chuẩn. Lượt 2: <span class="pending">CHỜ SỐ</span></td></tr>
+    <tr><td>Đủ rẻ không?</td><td><span class="pending">CHỜ SỐ</span></td></tr>
+    <tr><td>Còn thiếu gì?</td><td>Chưa thử trên dữ liệu thật; chưa có câu thử từ người dùng; chưa xác nhận thời gian tiết kiệm với key coach L3A.</td></tr>
+  </table>
+  <div class="box" style="margin-top:20px"><p><b>Gợi ý để nhóm cân nhắc:</b> ITERATE nếu lượt 2 đạt chuẩn, vì bằng chứng phía người soạn và dữ liệu thử còn mỏng.</p></div>
+  <div class="src">Nguồn: evidence/summary.md · eval/report.md · cost/cost-estimate.md</div>
+</section>
+
+<section>
+  <div class="kicker">8 · Nếu có thêm 1 tuần</div>
+  <h1>Ba việc, theo thứ tự</h1>
+  <table>
+    <tr><th style="width:36%">Việc</th><th>Vì sao</th></tr>
+    <tr><td><b>1. Đưa nhãn ĐỔI PHÒNG vào đầu phần gửi học viên</b> (G2 chèn bằng code)</td><td>B10: nếu key coach chỉ copy phần gửi học viên, học viên không biết phòng đã đổi, đúng tình huống R23 kể</td></tr>
+    <tr><td><b>2. Hỏi thêm key coach / trợ giảng L3A</b>, đo thời gian làm tay và thời gian duyệt nháp</td><td>Phía người soạn mới có 3 người; 25 phút / lần còn là tự ước tính</td></tr>
+    <tr><td><b>3. Thêm câu thử từ người dùng thật</b>, gồm câu tấn công lọt qua G1; người thứ hai chấm</td><td>0/28 câu có nguồn thực tế; lớp chặn thứ hai chưa được đo</td></tr>
+  </table>
+  <div class="src">Nguồn: eval/report.md mục 2 và 4 · evidence/summary.md mục 5–6 · spec.md §2</div>
+</section>
+
+</body>
+</html>

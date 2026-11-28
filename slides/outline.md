@@ -16,8 +16,24 @@
 
 **Trước khi lên:** tải repo về một máy khác (hoặc thư mục mới), chạy theo mục "Chạy trong 3 phút" của `README.md` · `.env` có trên máy demo, đã gọi thử 1 câu trong vòng 1 giờ trước giờ demo · video dự phòng mở được bằng cửa sổ ẩn danh · biết bản chạy thử sẽ làm gì với **1 câu thử lạ** của giám khảo.
 
-Ai nói trang nào (mỗi người ≥1 phần):
+Ai nói trang nào (mỗi người ≥1 phần) — *đề xuất theo phân công ở `TEAMS.md`, nhóm chốt*:
 
 | Trang | Người nói |
 |---|---|
-| | |
+| 1, 2 | Vũ Văn Hảo |
+| 3, 7, 8 | Vũ Đức Thắng |
+| 4 (demo) | Bùi Mạnh Linh |
+| 5 | Nguyễn Mạnh Quyền |
+| 6 | Vũ Văn Hảo |
+
+**Nguồn slide:** `slides/demo-slides.html`. Ô tô vàng là chỗ chờ số. Xuất PDF: mở file bằng Edge / Chrome → In → Lưu thành PDF → Lề: Không, bật "Đồ hoạ nền" → lưu `demo-slides.pdf` ở thư mục gốc.
+
+## Kịch bản video dự phòng *(khoảng 90 giây, quay màn hình với model thật)*
+
+1. `python run.py`, quay rõ dòng cuối có tên model và số token.
+2. Ca thường: `Soạn thông báo phòng cho L3A LAB 9 sáng 27/04.` → chỉ 4 phòng và mã ô.
+3. Ca khó: câu B14 (phòng dự kiến của bảng lab coach) → nhãn CHƯA XÁC NHẬN.
+4. Thiếu thông tin: câu B19 → hỏi lại lớp, "gọi model 0 lần".
+5. Từ chối: câu B24 (tự chốt và tự gửi) → G1 chặn.
+
+Không để `.env` hoặc API key xuất hiện trên màn hình.
